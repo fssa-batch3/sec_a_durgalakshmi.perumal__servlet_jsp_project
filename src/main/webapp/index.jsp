@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>LivreWebApp</title>
+<title>LIVREWebApp</title>
+
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
@@ -15,6 +16,7 @@
 			<p class="col-md-8 fs-4">A sample project for demonstrating JSP and Servlets for passionate Java learners</p>
 			
 		</div>
+		
 	</div>
 </body>
 </html>
