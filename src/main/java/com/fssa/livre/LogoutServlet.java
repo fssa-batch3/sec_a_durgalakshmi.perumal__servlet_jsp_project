@@ -20,14 +20,14 @@ public class LogoutServlet extends HttpServlet {
 
 			// invalidate removes all the session attributes
 			session.invalidate();
-
 		}
 		else {
 			System.out.println("No Session Exists");
 		}
 		
+		System.out.println(request.getAttribute("demoAttribute"));
 		// Redirecting to login page since we have logged out
-		response.sendRedirect("login.jsp");
+		response.sendRedirect("index.jsp");
 	}
 
 }

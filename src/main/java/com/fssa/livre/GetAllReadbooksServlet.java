@@ -24,7 +24,7 @@ public class GetAllReadbooksServlet extends HttpServlet {
      *
      * @param request  The HTTP request object.
      * @param response The HTTP response object.
-     * @throws ServletException If a servlet-related error occurs.
+     * @throws ServletException If a servlet related error occurs.
      * @throws IOException      If an I/O error occurs.
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -40,7 +40,7 @@ public class GetAllReadbooksServlet extends HttpServlet {
 		}
         
      request.setAttribute("readbooksList", readbooksList);
-    RequestDispatcher dispatcher = request.getRequestDispatcher("display_all_readbooks.jsp");
+    RequestDispatcher dispatcher = request.getRequestDispatcher("./pages/readbooks.jsp");
    dispatcher.forward(request, response);
     }
 }

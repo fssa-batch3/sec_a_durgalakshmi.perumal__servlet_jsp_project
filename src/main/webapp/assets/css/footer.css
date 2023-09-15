@@ -1,0 +1,81 @@
+.fi{
+    height:6px;
+   }              
+    /* Styling for the section-4 div */
+.section_4 {
+  display: flex;
+  justify-content: space-between;
+  background-color:rgb(250, 249, 249);
+  
+}
+
+
+/* Styling for the list-1 divs */
+.list-1 {
+  flex-basis: 33.33%;
+  padding: 20px;
+
+}
+
+.list-1 h4 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.list-1 a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* Styling for the list-3 div */
+.list_3 {
+  flex-basis: 33.33%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:20%;
+}
+
+.list_3 h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.list_3 img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+/* Styling for the footer */
+footer {
+  background-color: #f5f5f5;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+footer p {
+  margin-bottom: 10px;
+}
+
+footer a {
+  color: #333;
+  text-decoration: none;
+  margin: 0 10px;
+}
+.copyrights{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background-color: #14488D;
+  height:5%;
+  color:white;
+}

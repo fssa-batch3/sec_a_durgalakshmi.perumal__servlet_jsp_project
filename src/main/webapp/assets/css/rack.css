@@ -1,0 +1,302 @@
+
+.head-btn {
+  vertical-align: top;
+  display: inline-block;
+  padding-top: 30px;
+  margin-left: 950px;
+}
+
+
+.sign {
+  height: 50px;
+  width: 130px;
+  font-size: 20px;
+  cursor: pointer;
+  /* margin-left:65%; */
+  border-radius: 20px;
+  /* margin-bottom:-500px; */
+  background-color: white;
+  color: #234d72;
+  font-style: oblique;
+  /* margin-bottom:000px; */
+  border: none;
+}
+.btn-5 {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  margin-left: 20px;
+}
+.img-3 {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+}
+.btn-1 {
+  height: 50px;
+  width: 130px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+  border-radius: 20px;
+  /* margin-bottom:-500px; */
+  background-color: white;
+  color: #234d72;
+  font-style: oblique;
+  border: none;
+}
+.btn-1:hover {
+  background-color: #3a5e7e;
+  color: white;
+}
+.btn-2 {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  margin-left: 20px;
+}
+.sign:hover {
+  background-color: #2e5170;
+  color: white;
+}
+.img-2 {
+  height: 40px;
+  width: 40px;
+}
+.img-4 {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+}
+.btn-3 {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  margin-left: 20px;
+}
+.head {
+  background-color: white;
+  width: 100;
+  position: fixed;
+  z-index: 60;
+  margin-top: 110px;
+}
+.logo {
+  height: 100px;
+  /* margin-top: 10px; */
+  /* margin-left: 30px; */
+  /* align-items: center; */
+}
+.head-logo {
+  display: inline-block;
+}
+.img-1 {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+}
+.rackimg-1 {
+  height: 600px;
+  margin-left: 50px;
+  /* margin-top: 50px; */
+}
+.rack-div {
+  position: relative;
+}
+.vertical-scroll {
+  width: 400px;
+  position: absolute;
+  top: 220px;
+  left: 15%;
+  /* left: 190px; */
+  display: flex;
+  gap: 50px;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  margin-top: -33% ;
+}
+.vertical-scroll-2::-webkit-scrollbar {
+  display: none;
+}
+.vertical-scroll-2 {
+  width: 400px;
+  position: absolute;
+  top: 220px;
+  left: 15%;
+  /* left: 190px; */
+  display: flex;
+  gap: 50px;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  margin-top: -7% ;
+}
+.vertical-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.vertical-scroll-3 {
+  width: 400px;
+  position: absolute;
+  top: 220px;
+  left: 15%;
+  /* left: 190px; */
+  display: flex;
+  gap: 50px;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  margin-top:21%;
+}
+.vertical-scroll-3::-webkit-scrollbar {
+  display: none;
+}
+.vertical-scroll-4 {
+  width: 400px;
+  position: absolute;
+  top: 220px;
+  left: 15%;
+  /* left: 190px; */
+  display: flex;
+  gap: 50px;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  margin-top:50%;
+}
+.vertical-scroll-4::-webkit-scrollbar {
+  display: none;
+}
+.vertical-scroll-b1 {
+  width: 400px;
+  position: absolute;
+  top: 220px;
+  left: 15%;
+  /* left: 190px; */
+  display: flex;
+  gap: 50px;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  margin-top: -33% ;
+}
+.vertical-scroll-b1::-webkit-scrollbar {
+  display: none;
+}
+.vertical-scroll-b2 {
+  width: 400px;
+  position: absolute;
+  top: 220px;
+  left: 15%;
+  /* left: 190px; */
+  display: flex;
+  gap: 50px;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  margin-top: -7% ;
+}
+.vertical-scroll-b2::-webkit-scrollbar {
+  display: none;
+}
+.vertical-scroll-b3 {
+  width: 400px;
+  position: absolute;
+  top: 220px;
+  left: 15%;
+  /* left: 190px; */
+  display: flex;
+  gap: 50px;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  margin-top:21%;
+}
+.vertical-scroll-b3::-webkit-scrollbar {
+  display: none;
+}
+.vertical-scroll-b4 {
+  width: 400px;
+  position: absolute;
+  top: 220px;
+  left: 15%;
+  /* left: 190px; */
+  display: flex;
+  gap: 50px;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  margin-top:50%;
+
+}
+.vertical-scroll-b4::-webkit-scrollbar {
+  display: none;
+}
+
+.list-1 {
+  font-size: 40px;
+  color: white;
+
+  margin-top: -80px;
+}
+.simg-1 {
+  height: 100px;
+  width: 100px;
+  margin-left:10px;
+}
+.simg-2 {
+  height: 100px;
+  width: 100px;
+}
+.simg-3 {
+  height: 100px;
+  width: 100px;
+}
+.simg-4 {
+  height: 100px;
+  width: 100px;
+}
+.simg-5 {
+  height: 100px;
+  width: 100px;
+}
+.simg-6 {
+  height: 100px;
+  width: 100px;
+}
+.simg-7 {
+  height: 100px;
+  width: 100px;
+}
+.simg-8 {
+  height: 100px;
+  width: 100px;
+}
+.simg-9 {
+  height: 100px;
+  width: 100px;
+}
+.Lang-div {
+  display: flex;
+  margin-top: 200px;
+}
+.comp-div {
+  display: flex;
+  margin-top: 200px;
+  margin-left: 100px;
+}
+.rack-div2 {
+  position: relative;
+}
+.w-div-1 {
+  display: flex;
+}
+.row-3 {
+  display: flex;
+  margin-top: 200px;
+}
+.w-div-2 {
+  display: flex;
+}

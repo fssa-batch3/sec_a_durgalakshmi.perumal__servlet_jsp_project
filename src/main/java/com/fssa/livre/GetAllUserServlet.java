@@ -22,7 +22,7 @@ public class GetAllUserServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		 
 		List<User> users = null;
 		UserService userService = new UserService();
 		try {

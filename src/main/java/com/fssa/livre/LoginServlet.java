@@ -12,69 +12,48 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.fssa.livre.dao.UserDAO;
-//import com.fssa.livre.model.User;
 import com.fssa.livre.services.UserService;
 import com.fssa.livre.services.exceptions.ServiceException;
+
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-	UserDAO userDao = new UserDAO();
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String email = request.getParameter("email");
-		String password = request.getParameter("password");
-//		PrintWriter out = response.getWriter();
-//		if(email == null || "".equals(email)) {
-//			out.println("Invalid Email");
-//			response.sendRedirect("login.jsp?errorMessage=Invalid Email");
-//		}
-//		
-//		else if(password == null || "".equals(password) || password.length() < 6) {
-//			out.println("Invalid Password");
-//			response.sendRedirect("login.jsp?errorMessage=Invalid Password");	
-//			
-//		}
-//		else {
-//			out.println("Email and password is valid");
-////			response.sendRedirect("home.html");
+    private static final long serialVersionUID = 1L;
 
-//			RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
-//			dispatcher.forward(request, response);
-//			
-//		}
+    UserDAO userDao = new UserDAO();
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
 
-		
-		PrintWriter out = response.getWriter();
+        PrintWriter out = response.getWriter();
+        UserService loginService = new UserService();
+        HttpSession session = request.getSession();
 
-		UserService loginService = new UserService();
-		
-		
-			try {
-				if(loginService.loginUser(email, password)) {
-					out.println("Email and password is valid");
-//					response.sendRedirect("home.jsp");
-					HttpSession session = request.getSession();
-					session.setAttribute("loggedInEmail", email);
-					RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
-					dispatcher.forward(request, response);
-				}
-				else {
-					out.println("Email and password is Invalid");
-				
-}
-			} catch (ServiceException e) {
-				out.println(e.getMessage());
-				e.printStackTrace();
-				String[] errorMassage = e.getMessage().split(":");
-				response.sendRedirect("login.jsp?errorMessage="+errorMassage[1]);
-			}
-	
-	}
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doPost(req, resp);
-	}
-	
-	
+        try {
+            if ("admindurga@gmail.com".equals(email) && "Durgapassword@321".equals(password)) {
+                session.setAttribute("admin", true);
+
+                RequestDispatcher userDispatcher = request.getRequestDispatcher("index.jsp");
+                userDispatcher.forward(request, response);
+                return;
+            }
+             if (loginService.loginUser(email, password)) {
+                out.println("Email and password are valid");
+ 
+                session.setAttribute("loggedInEmail", email);
+
+
+                RequestDispatcher userDispatcher = request.getRequestDispatcher("index.jsp");
+                userDispatcher.forward(request, response);
+            } else {
+                out.println("Email and password are Invalid");
+            }
+        } catch (ServiceException e) {
+            out.println(e.getMessage());
+            e.printStackTrace();
+            String[] errorMassage = e.getMessage().split(":");
+            response.sendRedirect("index.jsp?errorMessage=" + errorMassage[1]);
+        }
+    }
+
 }

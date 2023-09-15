@@ -1,0 +1,64 @@
+.homep {
+  height: 60px;
+  width: 250px;
+  margin-left: 1500px;
+  font-size: 25px;
+  border-radius: 10px;
+  background-color: #aecde8;
+  margin-top: 000px;
+  border: none;
+}
+.homep:hover {
+  background-color: #194569;
+  color: aliceblue;
+}
+.logo {
+  margin-left: 600px;
+  margin-bottom: 50px;
+}
+.header {
+  background-color: white;
+  height: 400px;
+}
+
+.audio {
+  width: 1000px;
+  margin-left: 100px;
+  gap: 100px;
+  margin-top: 80px;
+}
+body {
+  background-color: #194569;
+}
+.c-1 {
+  display: flex;
+  margin-top: 100px;
+  background-color: #092a46;
+  margin-left: 100px;
+  margin-right: 100px;
+  border-radius: 20px;
+  height: 200px;
+}
+.piano {
+  height: 150px;
+  width: 150px;
+  border-radius: 15px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+p {
+  font-size: 30px;
+  color: aliceblue;
+  margin-left: 80px;
+  margin-top: 90px;
+}
+.heart {
+  height: 30px;
+  width: 30px;
+  margin-top: 90px;
+  margin-left: 20px;
+}
+.heart:hover {
+  background-color: palevioletred;
+  border-radius: 30px;
+}

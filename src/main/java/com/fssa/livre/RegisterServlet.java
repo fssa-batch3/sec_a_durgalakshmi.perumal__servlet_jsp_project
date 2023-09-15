@@ -39,11 +39,11 @@ public class RegisterServlet extends HttpServlet {
 	    try {
 			if (userService.registerUser(user)) {
 				out.println("user is valid");
-				RequestDispatcher dispatcher = req.getRequestDispatcher("Login.html");
+				RequestDispatcher dispatcher = req.getRequestDispatcher("./pages/login.jsp");
 				dispatcher.forward(req, resp);
 			} else {
 				out.println("user is Invalid");
-				resp.sendRedirect("register.html");
+				resp.sendRedirect("index.jsp");
 			}
 		} catch (ServiceException e) {
 		e.printStackTrace();
