@@ -92,13 +92,14 @@
           <li class="nav-item head_btn">
             <a class="navbar-brand" href="./pages/contactus.jsp">contact us</a>
           </li>
-
-        <% 
-   String loggedInEmail = (String) session.getAttribute("loggedInEmail");
-   if (loggedInEmail != null && !loggedInEmail.isEmpty()) {
+<% 
+Boolean isAdmin = (Boolean) session.getAttribute("admin");
+System.out.println(isAdmin);
+String loggedInEmail = (String) session.getAttribute("loggedInEmail");
+if ((loggedInEmail != null && !loggedInEmail.isEmpty()) || (isAdmin != null && isAdmin == true)) {
 %>
    <li class="nav-item head_btn">
-      <a class="navbar-brand" href="./LogoutServlet">Log Out</a>
+      <a class="navbar-brand" href="<%=request.getContextPath()%>/LogoutServlet">Log Out</a>
    </li>
 <% } else { %>
    <li class="nav-item head_btn">
@@ -106,7 +107,8 @@
    </li>
 <% } %>
 
-          <div class="flex-shrink-0 ">
+
+          <div class="flex-shrink-0">
             <a href="./pages/profile.jsp">
             <img src="./assets/images/Screenshot 2023-04-04 135236.png"
               alt="Generic placeholder image" class="img-fluid rounded-circle border border-dark border-3"

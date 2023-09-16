@@ -118,46 +118,48 @@
 
 		</div>
 	</div>
-	
-	
-	<div class="book-box">
-	<%
+
+<div class="book-box">
+    <%
     // HttpSession session = request.getSession(false);
     Boolean isAdmin = (Boolean) session.getAttribute("admin");
-%>
-<c:forEach items="${readbooksList}" var="readbooks">
-    <div class="box-1">
-        <img src="${readbooks.imagelink}" alt="${readbooks.bookname}" class="tb-1">
-        <div class="book-details">
-            <table>
-                <tr>
-                 
-                    <td class="bok_name">${readbooks.bookname}</td>
-                </tr>
-                <tr>
-                   
-                    <td class="read-box">
-                        <c:choose>
-                            <c:when test="${sessionScope.admin}">
-                                <a href="#" class="tbtn-1">Edit</a>
-                                <a href="#" class="tbtn-1">Delete</a>
-                            </c:when>
-                            <c:otherwise>
-                                <a href="${readbooks.pdflink}" class="tbtn-1">Read</a>
-                            </c:otherwise>
-                        </c:choose>
-                    </td>
-                </tr>
-                <tr>
-           
-                 
-                </tr>
-            </table>
-        </div>
-    </div>
-</c:forEach>
-</div>
+    %>
 
+    <c:forEach items="${readbooksList}" var="readbooks">
+        <div class="box-1">
+            <img src="${readbooks.imagelink}" alt="${readbooks.bookname}" class="tb-1">
+            <div class="book-details">
+                <table>
+                    <tr>
+                        <td class="bok_name">${readbooks.bookname}</td>
+                    </tr>
+                    <tr>
+                        <td class="read-box">
+                            <c:choose>
+                                <c:when test="${sessionScope.admin}">
+                                    <a href="readbooksedit.jsp" class="tbtn-1">Edit</a>
+                                    <a href="#" class="tbtn-1">Delete</a>
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="${readbooks.pdflink}" class="tbtn-1">Read</a>
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
+                    </tr>
+                    <tr>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </c:forEach>
+
+</div>
+	<div>
+    <!-- Display "Add Books" button only if isAdmin is true -->
+    <c:if test="${sessionScope.admin}">
+        <a href="<%=request.getContextPath()%>/readbooksform.jsp" class="btn-success">Add Books</a>
+    </c:if>
+</div>
 	<br>
 
 	<div class="section_4">

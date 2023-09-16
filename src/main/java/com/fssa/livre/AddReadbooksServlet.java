@@ -27,7 +27,8 @@ public class AddReadbooksServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-//  it allows you to send text or HTML content as the response to an HTTP request
+//  it allows you to send text or HTML content as the response to an HTTP requesth
+		System.out.println("servlet called");
 		PrintWriter out = resp.getWriter();
     
 		String bookname = req.getParameter("bookname");
@@ -43,10 +44,11 @@ public class AddReadbooksServlet extends HttpServlet {
 		try {
 			if (readbooksService.addReadBooks(readbooks)) {
 				out.println("Readbook added successfully");
+				System.out.println("Added");
                 books = readbooksService.getAllReadbooks();
 				req.setAttribute("readbooksList", books);
-				RequestDispatcher dispatcher = req.getRequestDispatcher("display_all_readbooks.jsp");
-				dispatcher.forward(req, resp);
+				resp.sendRedirect("GetAllReadbooksServlet");
+			
 			} else {
 				out.println("Failed to add readbook");
 				resp.sendRedirect("addreadbooks.jsp");
