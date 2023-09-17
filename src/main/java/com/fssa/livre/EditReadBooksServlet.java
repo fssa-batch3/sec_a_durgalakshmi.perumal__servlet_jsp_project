@@ -56,7 +56,7 @@ public class EditReadBooksServlet extends HttpServlet {
 
         try {
             readbooksService.readbooksUpdate(existingReadbooks);
-            resp.sendRedirect("readbooks.jsp");
+            resp.sendRedirect("GetAllReadbooksServlet");
         } catch (ServiceException e) {
             e.printStackTrace();
             out.println(e.getMessage());

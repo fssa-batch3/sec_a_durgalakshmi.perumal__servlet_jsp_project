@@ -138,7 +138,7 @@
                             <c:choose>
                                 <c:when test="${sessionScope.admin}">
                                     <a href="<%=request.getContextPath()%>/EditReadBooks?id=<c:out value='${readbooks.readbookid}' />" class="tbtn-1">Edit</a>
-                                    <a href="#" class="tbtn-1">Delete</a>
+                                    <a href="<%=request.getContextPath()%>/DeleteReadBooks" class="tbtn-1">Delete</a>
                                 </c:when>
                                 <c:otherwise>
                                     <a href="${readbooks.pdflink}" class="tbtn-1">Read</a>

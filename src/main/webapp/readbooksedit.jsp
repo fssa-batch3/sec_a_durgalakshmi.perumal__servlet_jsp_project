@@ -14,6 +14,8 @@
             <%
             Readbooks readbooks = (Readbooks) request.getAttribute("readbooks");
             %>
+            <input type="hidden" name="readbookid" value="<%= readbooks.getReadbookid() %>">
+            
             <div class="mb-3">
                 <label for="imagelink" class="form-label">Image URL:</label>
                 <input type="text" class="form-control" name="imagelink" value="<%= readbooks.getImagelink() %>" required />
@@ -28,16 +30,17 @@
             </div>
             <div class="mb-3">
                 <label for="section" class="form-label">Section </label>
-          <select id="books" class="form-control" name="category" value="<%= readbooks.getCategory() %>" value="CLASSIC" required>
-              <option value=""></option>
-                 <option value="adventure">ADVENTURE</option>
-              <option value="triller">THRILLER</option>
-              <option value="romantic">ROMANTIC</option>
-              <option value="comedy">COMEDY</option>
-              <option value="classic">CLASSIC</option>
-              <option value="horror">HORROR</option>
-              <option value="devotinal">DEVOTIONAL</option>
-            </select>
+         <select id="books" class="form-control" name="category" required>
+    <option value=""></option>
+    <option value="adventure" <%= (readbooks.getCategory().equals("adventure")) ? "selected" : "" %>>ADVENTURE</option>
+    <option value="triller" <%= (readbooks.getCategory().equals("triller")) ? "selected" : "" %>>THRILLER</option>
+    <option value="romantic" <%= (readbooks.getCategory().equals("romantic")) ? "selected" : "" %>>ROMANTIC</option>
+    <option value="comedy" <%= (readbooks.getCategory().equals("comedy")) ? "selected" : "" %>>COMEDY</option>
+    <option value="classic" <%= (readbooks.getCategory().equals("classic")) ? "selected" : "" %>>CLASSIC</option>
+    <option value="horror" <%= (readbooks.getCategory().equals("horror")) ? "selected" : "" %>>HORROR</option>
+    <option value="devotinal" <%= (readbooks.getCategory().equals("devotinal")) ? "selected" : "" %>>DEVOTIONAL</option>
+</select>
+
             <br />
             </div>
                   <button class="btn btn-primary" type="submit">Update</button>
