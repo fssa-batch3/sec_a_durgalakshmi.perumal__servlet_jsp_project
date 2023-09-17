@@ -1,39 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page import="com.fssa.livre.model.Readbooks" %>
 <!DOCTYPE html>
 <html>
 <head>
-   <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-    />
-<meta charset="ISO-8859-1">
-<title>ReadBooks Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
+    <meta charset="ISO-8859-1">
+    <title>Edit ReadBooks Entry</title>
 </head>
 <body>
-   <br />
-    <form id="bookform" action="<%=request.getContextPath()%>/editreadbooks" method="post">
-      <div class="mb-3 form-control container">
-        <!-- div 1 -->
-        <div>
-          <label  for="img" class="form-label">Image url:</label>
-          <input id="img_url" type="text" class="form-control" name="imagelink" required />
-        </div>
-        <br/>
-        <!-- div 2 -->
-        <div>
-          <label for="text" class="form-label">Book name:</label>
-          <input  id="bok_name" type="text" class="form-control"  name="bookname" required />
-        </div>
-        <br/>
-        <!-- div 3 -->
-        <div>
-          <label  for="text" class="form-label">Pdf url:</label>
-          <input  id="pdf_url" type="text" class="form-control" name="pdflink" required />
-        </div>
-        <div class="col">
-          <label for="section" class="form-label">Section </label>
-          <select id="books" class="form-control" name="category" required>
+    <div class="container">
+        <h2>Edit ReadBooks Entry</h2>
+        <form action="<%=request.getContextPath()%>/EditReadBooks" method="post">
+            <%
+            Readbooks readbooks = (Readbooks) request.getAttribute("readbooks");
+            %>
+            <div class="mb-3">
+                <label for="imagelink" class="form-label">Image URL:</label>
+                <input type="text" class="form-control" name="imagelink" value="<%= readbooks.getImagelink() %>" required />
+            </div>
+            <div class="mb-3">
+                <label for="bookname" class="form-label">Book Name:</label>
+                <input type="text" class="form-control" name="bookname" value="<%= readbooks.getBookname() %>" required />
+            </div>
+            <div class="mb-3">
+                <label for="pdflink" class="form-label">PDF URL:</label>
+                <input type="text" class="form-control" name="pdflink" value="<%= readbooks.getPdflink() %>" required />
+            </div>
+            <div class="mb-3">
+                <label for="section" class="form-label">Section </label>
+          <select id="books" class="form-control" name="category" value="<%= readbooks.getCategory() %>" value="CLASSIC" required>
               <option value=""></option>
                  <option value="adventure">ADVENTURE</option>
               <option value="triller">THRILLER</option>
@@ -44,12 +39,9 @@
               <option value="devotinal">DEVOTIONAL</option>
             </select>
             <br />
-        <div class="d-grid d-md-block container">
-          <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
-      </div>
-      </div>
-      
-    </form>
+            </div>
+                  <button class="btn btn-primary" type="submit">Update</button>
+        </form>
+    </div>
 </body>
 </html>
