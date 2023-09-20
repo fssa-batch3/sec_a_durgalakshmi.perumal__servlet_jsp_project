@@ -43,7 +43,11 @@
 
             <br />
             </div>
-                  <button class="btn btn-primary" type="submit">Update</button>
+                  <button class="btn btn-primary" type="submit">Update</button><br>
+                  <p>Are you sure, You wnat to delete this book?</p>
+<a href="<%=request.getContextPath()%>/DeleteReadbooksServlet?id=<%= readbooks.getReadbookid() %>"
+   class="btn btn-danger">Delete</a>
+                  
         </form>
     </div>
 </body>

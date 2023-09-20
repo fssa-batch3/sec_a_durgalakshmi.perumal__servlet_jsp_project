@@ -12,154 +12,70 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>readbooks</title>
-  <link rel="stylesheet" href="./assets/css/header-books.css" />
-  <link rel="stylesheet" href="./assets/css/readbook.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="./assets/css/header-books.css" />
+<link rel="stylesheet" href="./assets/css/readbook.css" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="./assets/css/header.css" />
 <link rel="stylesheet" href="./assets/css/footer.css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf_viewer.css">
+
 </head>
 
 <body>
-
-
-	<!--nav starts-->
-
-	<nav class="navbar navbar-expand-lg bg-body-tertiary">
-
-		<div class="container">
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<!--header-->
-
-			<div class="collapse navbar-collapse header"
-				id="navbarSupportedContent">
-				<div class="head-logo">
-					<img class="logo" src="./assets/images/dulogo.png" alt="logo" />
-				</div>
-
-				<li class="nav-item head_btn"><a class="navbar-brand"
-					href="./mybooks.jsp">My books</a></li>
-
-				<!--<li class="nav-item head_btn">
-              <a class="navbar-brand" href="sugges.html">suggestions</a>
-            </li>-->
-
-
-				<li class="nav-item dropdown head_btn"><a
-					class="nav-link dropdown-toggle" role="button"
-					data-bs-toggle="dropdown" aria-expanded="false"> Browse </a>
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="./pages/trendbooks.jsp">Trending
-								books</a></li>
-						<li><a class="dropdown-item" href="./pages/readbooks.jsp">Read
-								books</a></li>
-						<li><a class="dropdown-item" href="./pages/sugges.jsp">Suggestions</a>
-						</li>
-						<li><a class="dropdown-item" href="./pages/buybooks.jsp">Buy
-								books</a></li>
-						<li><a class="dropdown-item" href="./pages/rack.jsp">Rack
-								library</a></li>
-						<li><a class="dropdown-item" href="./pages/musics.jsp">Music</a>
-						</li>
-					</ul></li>
-
-				</ul>
-
-				<li class="nav-item head_btn"><a class="navbar-brand"
-					href="./pages/contactus.jsp">contact us</a></li>
-
-				<li class="nav-item head_btn"><a class="navbar-brand"
-					href="./pages/login.jsp">log in </a></li>
+<header>
+		<jsp:include page="/header.jsp" />
+	</header>
 
 
 
-				<div class="flex-shrink-0 ">
-					<a href="./pages/profile.html"> <img
-						src="./assets/images/Screenshot 2023-04-04 135236.png"
-						alt="Generic placeholder image"
-						class="img-fluid rounded-circle border border-dark border-3"
-						style="width: 50px;"></a>
+	<div class="book-box">
+		<%
+		// HttpSession session = request.getSession(false);
+		Boolean isAdmin = (Boolean) session.getAttribute("admin");
+		%>
 
+		<c:forEach items="${readbooksList}" var="readbooks">
+			<div class="box-1">
+				<img src="${readbooks.imagelink}" alt="${readbooks.bookname}"
+					class="tb-1">
+				<div class="book-details">
+					<table>
+						<tr>
+							<td class="bok_name">${readbooks.bookname}</td>
+						</tr>
+						<tr>
+							<td class="read-box"><c:choose>
+									<c:when test="${sessionScope.admin}">
+										<a
+											href="<%=request.getContextPath()%>/EditReadBooks?id=<c:out value='${readbooks.readbookid}' />"
+											class="tbtn-1">Edit</a>
 
+									</c:when>
+									<c:otherwise>
+										<a href="<%=request.getContextPath()%>/pdfViewer?pdflink=<c:out value='${readbooks.pdflink}' />"
+											class="tbtn-1">Read</a>
+											
+											
+									</c:otherwise>
+								</c:choose></td>
+						</tr>
+						<tr>
+						</tr>
+					</table>
 				</div>
 			</div>
-			<div>
-				<form action="searchreadbooks" method="post">
-					<label for="category">Search Category:</label> <select
-						name="category" id="category">
-						<option value="ADVENTURE">ADVENTURE</option>
-						<option value="THRILLER">TRILLER</option>
-						<option value="ROMANTIC">ROMANTIC</option>
-						<option value="COMEDY">COMEDY</option>
-						<option value="CLASSIC">CLASSIC</option>
-						<option value="HORROR">HORROR</option>
-						<option value="DEVOTIONAL">DEVOTIONAL</option>
-					</select> <input type="submit" value="Search">
-				</form>
+		</c:forEach>
 
-				<a href=GetAllReadbooksServlet>Show All Books</a>
-
-			</div>
-	</nav>
-
-
-	<div class="section-body">
-		<div class="vertical-nav">
-			<ul>
-
-
-				<li class="back_btn bok-type"><a href="../index.html"
-					style="text-decoration: none; color: white;">back</a></li>
-			</ul>
-
-		</div>
 	</div>
-
-<div class="book-box">
-    <%
-    // HttpSession session = request.getSession(false);
-    Boolean isAdmin = (Boolean) session.getAttribute("admin");
-    %>
-
-    <c:forEach items="${readbooksList}" var="readbooks">
-        <div class="box-1">
-            <img src="${readbooks.imagelink}" alt="${readbooks.bookname}" class="tb-1">
-            <div class="book-details">
-                <table>
-                    <tr>
-                        <td class="bok_name">${readbooks.bookname}</td>
-                    </tr>
-                    <tr>
-                        <td class="read-box">
-                            <c:choose>
-                                <c:when test="${sessionScope.admin}">
-                                    <a href="<%=request.getContextPath()%>/EditReadBooks?id=<c:out value='${readbooks.readbookid}' />" class="tbtn-1">Edit</a>
-                                    <a href="<%=request.getContextPath()%>/DeleteReadBooks" class="tbtn-1">Delete</a>
-                                </c:when>
-                                <c:otherwise>
-                                    <a href="${readbooks.pdflink}" class="tbtn-1">Read</a>
-                                </c:otherwise>
-                            </c:choose>
-                        </td>
-                    </tr>
-                    <tr>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </c:forEach>
-
-</div>
 	<div>
-    <!-- Display "Add Books" button only if isAdmin is true -->
-    <c:if test="${sessionScope.admin}">
-        <a href="<%=request.getContextPath()%>/readbooksform.jsp" class="btn-success">Add Books</a>
-    </c:if>
-</div>
+		<!-- Display "Add Books" button only if isAdmin is true -->
+		<c:if test="${sessionScope.admin}">
+			<a href="<%=request.getContextPath()%>/readbooksform.jsp"
+				class="btn-success">Add Books</a>
+		</c:if>
+	</div>
 	<br>
 
 	<div class="section_4">
@@ -199,6 +115,8 @@
 
 	<script src="./../assets/js/readbook.js"></script>
 
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.js"></script>
 
 </body>
 </html>

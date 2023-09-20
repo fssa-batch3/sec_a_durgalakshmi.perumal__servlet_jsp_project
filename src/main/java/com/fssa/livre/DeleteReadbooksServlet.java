@@ -1,36 +1,36 @@
 package com.fssa.livre;
-import com.fssa.livre.services.ReadbooksService;
-import com.google.protobuf.ServiceException;
-
 import java.io.IOException;
-import java.io.PrintWriter;
-
+import com.fssa.livre.services.ReadbooksService;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import day11.practice.TaskDAO2.DAOException;
-@WebServlet("/DeleteReadBooks")
-public class DeleteReadbooksServlet {
-	 private static final long serialVersionUID = 1L;
+@WebServlet("/DeleteReadbooksServlet")
+public class DeleteReadbooksServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
 
-	    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, DAOException, com.fssa.livre.services.exceptions.ServiceException, IOException {
-	        PrintWriter out;
-			try {
-				out = resp.getWriter();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	        int id = Integer.parseInt(req.getParameter("id"));
-	        
-	        ReadbooksService readbooksService = new ReadbooksService();
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        try {
+            int readbookid = Integer.parseInt(req.getParameter("id"));
+            ReadbooksService readbooksService = new ReadbooksService();
 
-	        readbooksService.getReadbooksById(id);
-		
-			System.out.println("Readbooks record with ID " + id + " has been deleted.");
-			resp.sendRedirect("GetAllReadbooksServlet");
-	    }
-	}
+            // Assuming you have a method like this in your service class to delete the book
+            readbooksService.readbooksDelete(readbookid); 
 
+            // Optionally, you can set a success message or response status code
+            // and then redirect to a success page or return a success JSON response.
+            resp.setStatus(HttpServletResponse.SC_OK);
+            resp.getWriter().write("Book deleted successfully");
+            resp.sendRedirect("GetAllReadbooksServlet");
+
+        } catch (NumberFormatException | com.fssa.livre.services.exceptions.ServiceException e) {
+            e.printStackTrace();
+            
+            // In case of an error, set an appropriate response status code and message
+            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            resp.getWriter().write("Error deleting the book: " + e.getMessage());
+        }
+    }
+}

@@ -53,7 +53,7 @@
           </div>
          
             <li class="nav-item head_btn">
-              <a class="navbar-brand" href="./pages/mybooks.jsp">My books</a>
+              <a class="navbar-brand" href="./pages/DisplayMyBooks.jsp">My books</a>
             </li>
          
             <!--<li class="nav-item head_btn">
@@ -133,7 +133,7 @@ if ((loggedInEmail != null && !loggedInEmail.isEmpty()) || (isAdmin != null && i
             </ul>
             <h2>Recent Posts</h2>
             <ul>
-              <li><a href="#">My books</a></li>
+              <li><a href="./pages/DisplayMyBooks.jsp">My books</a></li>
              
             </ul>
 
@@ -227,7 +227,7 @@ if ((loggedInEmail != null && !loggedInEmail.isEmpty()) || (isAdmin != null && i
   </form>
 </div>
 </div>
-</section>
+
 
 <!-- footer -->
 <div class="section_4">
