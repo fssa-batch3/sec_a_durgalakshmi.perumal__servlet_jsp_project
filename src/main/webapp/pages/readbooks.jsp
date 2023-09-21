@@ -31,7 +31,10 @@
 
 
 	<div class="book-box">
+
+	
 		<%
+		
 		// HttpSession session = request.getSession(false);
 		Boolean isAdmin = (Boolean) session.getAttribute("admin");
 		%>
@@ -54,8 +57,8 @@
 
 									</c:when>
 									<c:otherwise>
-										<a href="<%=request.getContextPath()%>/pdfViewer?pdflink=<c:out value='${readbooks.pdflink}' />"
-											class="tbtn-1">Read</a>
+<a href="<%=request.getContextPath()%>/pdfViewer?pdflink=<c:out value='${readbooks.pdflink}' />&bookId=<c:out value='${readbooks.readbookid}' />" class="tbtn-1">Read</a>
+
 											
 											
 									</c:otherwise>

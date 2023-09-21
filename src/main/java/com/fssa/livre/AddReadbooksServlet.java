@@ -30,13 +30,13 @@ public class AddReadbooksServlet extends HttpServlet {
 //  it allows you to send text or HTML content as the response to an HTTP requesth
 		System.out.println("servlet called");
 		PrintWriter out = resp.getWriter();
-    
+		int bookid = Integer.parseInt(req.getParameter("readbookid"));
 		String bookname = req.getParameter("bookname");
 		String imagelink = req.getParameter("imagelink");
 		String pdflink = req.getParameter("pdflink");
 		String category = req.getParameter("category");
 
-		Readbooks readbooks = new Readbooks(bookname, imagelink, pdflink, category);
+		Readbooks readbooks = new Readbooks(bookid, bookname, imagelink, pdflink, category);
 
 		ReadbooksService readbooksService = new ReadbooksService();
 		List<Readbooks> books = null;

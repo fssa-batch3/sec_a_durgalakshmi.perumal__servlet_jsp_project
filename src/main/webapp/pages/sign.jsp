@@ -1,10 +1,11 @@
-<!DOCTYPE >
-<html lang="en">
-  <head>
-    <title>SIGN-UP</title>
-  </head>
-  <style>
-   
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration</title>
+<style>
+    <style>
 
     body{
       background-image:url(./../assets/images/new2.jpg);
@@ -20,13 +21,13 @@
     }
 .container {
   width: 300px;
-  padding: 20px;
+  padding: 50px;
   background-color: #49546e;
   border-radius: 5px;
   margin: 0 auto;
   box-shadow: 0 15px 25px rgba(40, 12, 110, 0.6);
 
-  margin-top: 13%;
+  margin-top: 8%;
   margin-left:5%;
   color:#ffff;
 
@@ -90,12 +91,14 @@ label {
   cursor: pointer;
 }
 
-  </style>
+</style>
+    
 
-  <body>
-    <div>
+</head>
+<body>
+<div>
      
-      <form id="form-sign">
+      <form id="form-sign" action="register" method="post">
         <div class="container">
           <div class="con-1">
             <h1>Sign Up</h1>
@@ -104,6 +107,7 @@ label {
             <!-- email -->
             <label for="email" class="email"><b>Email</b></label>
             <input
+            
               class="fb"
               type="email"
               placeholder="Enter Email"
@@ -111,37 +115,47 @@ label {
               id="email"
               
             /><br />
-<!-- password -->
+
             <label for="pwd" class="psw"><b>Password</b></label>
             <input
               class="fb"
               type="password"
               required
               placeholder="Enter Password"
-              pattern="[A-Za-z0-9]{0,25}$"
-              title="You should enter only number,lowercase and uppercase"
+             
               id="password"
             /><br />
-<!-- confirm password -->
-            <label class="psw-repeat"><b>Repeat Password</b></label>
-            <input
-              class="fb"
-              type="password"
-              required
-              placeholder="Repeat Password"
-              pattern="[A-Za-z0-9]{0,25}$"
-              title="password is not matching"
-              id="conpwd"
-            /><br />
 
-            <label>
-              <input class="rm" type="checkbox" checked="checked" />
-              Show password
-            </label>
+<label for="name" class="name"><b>Name</b></label>
+<input
+  class="fb"
+  type="text"
+  placeholder="Enter Name"
+  id="name"
+/><br />
+
+<label for="phoneNumber" class="phone"><b>Phone Number</b></label>
+<input
+  class="fb"
+  type="tel"
+  placeholder="Enter Phone Number"
+  id="phoneNumber"
+/><br />
+
+<label for="age" class="age"><b>Age</b></label>
+<input
+  class="fb"
+  type="number"
+  placeholder="Enter Age"
+  id="age"
+/><br />
+
+
+         
 
             <p>
               Already have an account
-              <a class="term" href="../pages/login.html">Log in</a>.
+              <a class="term" href="../pages/login.jsp">Log in</a>.
             </p>
            
 
@@ -159,57 +173,6 @@ label {
         </form>
        
         </div>
-        
-    </div>
-    <script>
-  
-           const signup = document.getElementById("form-sign");
-           signup.addEventListener("submit",function (event){
-            event.preventDefault();
-            let array = [];
 
-                if (localStorage.getItem("usersdetails") != null) {
-                    array = JSON.parse(localStorage.getItem("usersdetails"));
-                }
-              let match = false
-                let email = document.getElementById("email").value.trim();
-                let password = document.getElementById("password").value.trim();
-                let conpassword = document.getElementById("conpwd").value.trim();
-     
-                
-                if (password != conpassword) {
-                  alert("Invalid credentials")
-                  return;
-                } 
-                else  {
-                   for(let i = 0; i < array.length; i++){
-                    if (array[i]["user_email"] === email){
-                      match = true;
-                    }
-                   }
-                  }
-                
-
-                if(match == true){
-                  alert("The email is already exists")
-                }
-                else {
-                 
-                    let sign_user_data = {  
-                      
-                        "user_email": email.toLowerCase(),
-                        "user_pass": password,
-                        "user_conpwd": conpassword,
-                    }
-                    array.push(sign_user_data);
-                    let arrayupdate = JSON.stringify(array);
-                    localStorage.setItem("usersdetails", arrayupdate);
-                    window.location.href = "./login.html";
-                   
-                }
-              })
-            
-          
-    </script>
-  </body>
+</body>
 </html>

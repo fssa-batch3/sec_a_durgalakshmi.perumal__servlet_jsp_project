@@ -247,7 +247,7 @@
     <button type="submit">Submit</button>
   </form>
   <p>
-    Don't have an account? <a href="../register.jsp" class="a2">Sign up!</a>
+    Don't have an account? <a href="./sign.jsp" class="a2">Sign up!</a>
   </p>
 </div>
 

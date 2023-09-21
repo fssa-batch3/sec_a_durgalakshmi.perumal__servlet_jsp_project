@@ -48,6 +48,40 @@
             </li>-->
             
          
+       
+          <li class="nav-item head_btn">
+            <a class="navbar-brand" href="./pages/contactus.jsp">contact us</a>
+          </li>
+<% 
+Boolean isAdmin = (Boolean) session.getAttribute("admin");
+String loggedInEmail = (String) session.getAttribute("loggedInEmail");
+if ((loggedInEmail != null && !loggedInEmail.isEmpty()) || (isAdmin != null && isAdmin == true)) {
+%>
+   <li class="nav-item head_btn">
+      <a class="navbar-brand" href="<%=request.getContextPath()%>/LogoutServlet">Log Out</a>
+   </li>
+  <div class="flex-shrink-0">
+    <a href="./pages/profile.jsp">
+        <img src="./assets/images/Screenshot 2023-04-04 135236.png"
+             alt="Generic placeholder image" class="img-fluid rounded-circle border border-dark border-3"
+             style="width:50px;">
+    </a>
+</div>
+
+<% } else { %>
+   <li class="nav-item head_btn">
+      <a class="navbar-brand" href="./pages/login.jsp">Log In</a>
+   </li>
+<% } %>
+
+
+
+        
+            <%-- 
+            
+            
+            
+            
             <li class="nav-item dropdown head_btn">
               <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Browse
@@ -75,34 +109,9 @@
             </li>
       
           </ul>      
-       
-          <li class="nav-item head_btn">
-            <a class="navbar-brand" href="./pages/contactus.jsp">contact us</a>
-          </li>
-<% 
-Boolean isAdmin = (Boolean) session.getAttribute("admin");
-System.out.println(isAdmin);
-String loggedInEmail = (String) session.getAttribute("loggedInEmail");
-if ((loggedInEmail != null && !loggedInEmail.isEmpty()) || (isAdmin != null && isAdmin == true)) {
-%>
-   <li class="nav-item head_btn">
-      <a class="navbar-brand" href="<%=request.getContextPath()%>/LogoutServlet">Log Out</a>
-   </li>
-<% } else { %>
-   <li class="nav-item head_btn">
-      <a class="navbar-brand" href="./pages/login.jsp">Log In</a>
-   </li>
-<% } %>
-
-
-          <div class="flex-shrink-0">
-            <a href="./pages/profile.jsp">
-            <img src="./assets/images/Screenshot 2023-04-04 135236.png"
-              alt="Generic placeholder image" class="img-fluid rounded-circle border border-dark border-3"
-              style="width:50px;"></a>
-
             
-        </div>
+            
+            
        <label for="check" class="menuButton">
           <input id="check" onclick="toggleSidebar()" type="checkbox">
           <span class="top"></span>
@@ -110,8 +119,9 @@ if ((loggedInEmail != null && !loggedInEmail.isEmpty()) || (isAdmin != null && i
           <span class="bot"></span>
         </label>
           <div class="sidebar" id="sidebar">
-        
-            <%--   <h2>books</h2>
+            
+            
+              <h2>books</h2>
             <ul>
               <li><a href="./pages/readbooks.jsp">Books to read</a></li>
               <li><a href="./pages/buybooks.jsp">Books to buy</a></li>
@@ -123,14 +133,16 @@ if ((loggedInEmail != null && !loggedInEmail.isEmpty()) || (isAdmin != null && i
               <li><a href="./pages/DisplayMyBooks.jsp">My books</a></li>
              
             </ul>
---%>
-            <div class="toggle-switch">
+            
+                        <div class="toggle-switch">
               <label class="switch-label">
                 <input type="checkbox" id="mode-toggle" class="checkbox">
                 <span class="slider"></span>
               </label>
             </div> 
     
+--%>
+
 
       </div>
     

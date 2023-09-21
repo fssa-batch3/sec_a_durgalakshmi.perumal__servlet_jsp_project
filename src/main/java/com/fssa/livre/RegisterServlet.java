@@ -30,10 +30,13 @@ public class RegisterServlet extends HttpServlet {
 		PrintWriter out = resp.getWriter();
 
 		
-	    String email = req.getParameter("email");
-	    String password = req.getParameter("password");
+		   String email = req.getParameter("email");
+	        String password = req.getParameter("password");
+	        String name = req.getParameter("name");
+	        long phoneNumber = Long.parseLong(req.getParameter("phoneNumber"));
+	        int age = Integer.parseInt(req.getParameter("age"));
 
-	    User user = new User(email, password);
+	    User user = new User(email, password, name, phoneNumber, age);
 	    UserService userService = new UserService();
 	    
 	    try {
