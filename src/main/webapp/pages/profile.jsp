@@ -11,7 +11,7 @@
     />
     <link
     rel="stylesheet"
-    href="./../assets/css/profile.css"
+    href="./assets/css/profile.css"
   />
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -26,17 +26,17 @@
      <% User user = (User) request.getAttribute("userDetails"); %>
 
     
-      <form id="form" method="post" action="<%=request.getContextPath()%>/ProfileServlet">
+      <form id="form" method="get" action="<%=request.getContextPath()%>/ProfileServlet">
         <div class="form-group" >
          <% if (user != null) { %> 
         <label for="uname">Name:</label>
-<input type="text" placeholder="Enter your name" class="form-control" id="fname" maxlength="30" value="<%=user.getname() %>">
+<input type="text" disabled  placeholder="Enter your name" class="form-control" id="fname" maxlength="30" value="<%=user.getname() %>">
 
 <label for="uname">Age:</label>
-<input type="number" placeholder="Enter your Age" class="form-control" id="age" maxlength="3" value="<%=user.getAge()%>" >
+<input type="number" disabled  placeholder="Enter your Age" class="form-control" id="age" maxlength="3" value="<%=user.getAge()%>" >
 
 <label for="uname">Phone number:</label>
-<input type="number" placeholder="Enter your phone number" pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number" class="form-control" id="ph_number" maxlength="10" value="<%=user.getPhoneNumber()%>">
+<input type="number" disabled  placeholder="Enter your phone number" pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number" class="form-control" id="ph_number" maxlength="10" value="<%=user.getPhoneNumber()%>">
 
 
 <label for="email">Email:</label>
@@ -56,14 +56,11 @@
         
         <div class="form-group form-check">
          
-          <button id="btn-delete" type="submit">Log out </button>
-          <button id="btn-sub" type="submit"> Save changes </button>
-        </div>
-        <div class="form-group form-check">
-          <button id="btn-back" >back </button>
-         
-        </div>
-
+  
+           <div class="form-group form-check">
+        <button id="btn-delete" type="submit" name="updateProfile" href="<%=request.getContextPath()%>/UpadteProfile" value="Save changes">Update</button>
+        <button id="btn-back" href="./index.jsp">Back</button>
+    
      
          
         

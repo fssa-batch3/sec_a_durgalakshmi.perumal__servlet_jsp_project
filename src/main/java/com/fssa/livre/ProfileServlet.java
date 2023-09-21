@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+import com.fssa.livre.dao.UserDAO;
+import com.fssa.livre.dao.exception.DAOException;
 import com.fssa.livre.model.User;
 import com.fssa.livre.services.UserService;
 import com.fssa.livre.services.exceptions.ServiceException;
@@ -19,33 +20,38 @@ import com.fssa.livre.services.exceptions.ServiceException;
  */
 @WebServlet("/ProfileServlet")
 public class ProfileServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-       
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            HttpSession session = request.getSession();
-            Integer userId = (Integer) session.getAttribute("userId");
-            UserService userService = new UserService();
-            User user = userService.getUserById(userId);
+	private static final long serialVersionUID = 1L;
 
-      
-            if (user != null) {
-           
 
-            	request.setAttribute("userDetails", user);
-            
-            } else {
-            
-                response.sendRedirect("error.jsp"); 
-                return;
-            }
+	    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	            throws ServletException, IOException {
+	        try {
+	            HttpSession session = request.getSession(false);
+	            String email = (String) session.getAttribute("loggedInEmail");
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/profile.jsp");
-            dispatcher.forward(request, response);
+	            if (email != null) {
+	                UserService userService = new UserService();
+	                User user = userService.getUserByEmail(email);
 
-        } catch (ServiceException e) {
-            e.printStackTrace();
-        }
-    }
-}
+	                
+	                if (user != null) {
+	                    request.setAttribute("userDetails", user);
+	                } else {
+	                    response.sendRedirect("error.jsp");
+	                    return;
+	                }
+
+	                RequestDispatcher dispatcher = request.getRequestDispatcher("./pages/profile.jsp");
+	                dispatcher.forward(request, response);
+	            } else {
+	                response.sendRedirect("login.jsp");
+	            }
+	        } catch (ServiceException e) {
+	            e.printStackTrace();
+	        }
+	    }
+
+
+	}
+
 

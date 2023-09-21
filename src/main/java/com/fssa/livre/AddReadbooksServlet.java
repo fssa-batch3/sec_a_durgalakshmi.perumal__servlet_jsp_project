@@ -33,12 +33,10 @@ public class AddReadbooksServlet extends HttpServlet {
         String imagelink = req.getParameter("imagelink");
         String pdflink = req.getParameter("pdflink");
         String category = req.getParameter("category");
-
+        
         Readbooks readbooks = new Readbooks(bookname, imagelink, pdflink, category);
-
         ReadbooksService readbooksService = new ReadbooksService();
         List<Readbooks> books = null;
-
         try {
             if (readbooksService.addReadBooks(readbooks)) {
                 out.println("Readbook added successfully");

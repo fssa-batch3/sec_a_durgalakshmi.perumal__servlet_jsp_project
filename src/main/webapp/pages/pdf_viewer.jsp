@@ -8,7 +8,7 @@
 <body><header>
 		<jsp:include page="/header.jsp" />
 	</header>
-	<a href="/pages/index.jsp">Back</a>
+
     <div style="height: 80vh">
         <iframe src="<%= request.getAttribute("pdflink") %>" width="100%" height="100%"></iframe>
     </div>

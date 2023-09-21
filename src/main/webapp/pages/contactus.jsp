@@ -114,6 +114,10 @@ h1 {
 
   </style>
   <body>
+  <header>
+		<jsp:include page="/header.jsp" />
+	</header>
+  
     <div class="all">
       <div class="s-1">
         <div class="address">

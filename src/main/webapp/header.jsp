@@ -38,11 +38,13 @@
           <div class="head-logo">
             <img class="logo" id="logo" src="./assets/images/dulogo.png" alt="logo" />
           </div>
-         
+          <li class="nav-item head_btn">
+              <a class="navbar-brand" href="./index.jsp">Home</a>
+            </li>
             <li class="nav-item head_btn">
               <a class="navbar-brand" href="./pages/DisplayMyBooks.jsp">My books</a>
             </li>
-         
+              
             <!--<li class="nav-item head_btn">
               <a class="navbar-brand" href="sugges.html">suggestions</a>
             </li>-->
@@ -61,8 +63,8 @@ if ((loggedInEmail != null && !loggedInEmail.isEmpty()) || (isAdmin != null && i
       <a class="navbar-brand" href="<%=request.getContextPath()%>/LogoutServlet">Log Out</a>
    </li>
   <div class="flex-shrink-0">
-    <a href="./pages/profile.jsp">
-        <img src="./assets/images/Screenshot 2023-04-04 135236.png"
+    <a href="<%=request.getContextPath()%>/ProfileServlet">
+        <img src="./assets/images/Screenshot 2023-04-04 135236.png" 
              alt="Generic placeholder image" class="img-fluid rounded-circle border border-dark border-3"
              style="width:50px;">
     </a>

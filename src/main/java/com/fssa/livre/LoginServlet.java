@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.fssa.livre.dao.UserDAO;
+import com.fssa.livre.model.User;
 import com.fssa.livre.services.UserService;
 import com.fssa.livre.services.exceptions.ServiceException;
 
@@ -19,9 +20,11 @@ import com.fssa.livre.services.exceptions.ServiceException;
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    UserDAO userDao = new UserDAO();
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+    	UserDAO userDao = new UserDAO();
+    
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
@@ -39,9 +42,10 @@ public class LoginServlet extends HttpServlet {
             }
              if (loginService.loginUser(email, password)) {
                 out.println("Email and password are valid");
- 
+            
                 session.setAttribute("loggedInEmail", email);
 
+                System.out.println("Email: " + session.getAttribute("loggedInEmail"));
 
                 RequestDispatcher userDispatcher = request.getRequestDispatcher("index.jsp");
                 userDispatcher.forward(request, response);
