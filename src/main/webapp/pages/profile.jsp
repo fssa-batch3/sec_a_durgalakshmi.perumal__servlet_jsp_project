@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="com.fssa.livre.model.User"%>
 <html lang="en">
   <head>
     <title>PROFILE</title>
@@ -20,32 +21,37 @@
     <div class="container">
       <h2>PROFILE</h2>
      <hr>
-      <form id="form">
+     
+     
+     <% User user = (User) request.getAttribute("userDetails"); %>
+
+    
+      <form id="form" method="post" action="<%=request.getContextPath()%>/ProfileServlet">
         <div class="form-group" >
-            <!-- first name -->
-          
-            <label for="uname">Firstname:</label>
-            <input type="text" placeholder="Enter your Firstname"   class="form-control" id="fname" maxlength="30" ></label>
-            <!-- last name -->
-            <label for="uname">Lastname:</label>
-            <input type="text"  placeholder="Enter your Lastname" class="form-control" id="lname" maxlength="30" ></label>
-            <!-- address -->
-           
-            <label for="uname">Age:</label>
-            <input type="number"   placeholder="Enter your Age" class="form-control" id="age"  maxlength="3" ></label>
+         <% if (user != null) { %> 
+        <label for="uname">Name:</label>
+<input type="text" placeholder="Enter your name" class="form-control" id="fname" maxlength="30" value="<%=user.getname() %>">
 
-            <label for="uname">phone number:</label>
-            <input type="number" placeholder="Enter your phone number" pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number"    class="form-control" id="ph_number" maxlength="10"   ></label>
+<label for="uname">Age:</label>
+<input type="number" placeholder="Enter your Age" class="form-control" id="age" maxlength="3" value="<%=user.getAge()%>" >
 
-          <label for="email">Email:</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            name="email"
-            disabled  
-            
-          />
+<label for="uname">Phone number:</label>
+<input type="number" placeholder="Enter your phone number" pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number" class="form-control" id="ph_number" maxlength="10" value="<%=user.getPhoneNumber()%>">
+
+
+<label for="email">Email:</label>
+
+    <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        disabled
+        value="<%=user.getEmail()%>"
+    />
+ <% } else { %>
+         <p>User not found.</p>
+       <% } %>
         </div>
         
         <div class="form-group form-check">
@@ -66,7 +72,7 @@
     
     </div>
 
-    <script>
+    <!-- <script>
 
     // getting the data from the array deatils and user datails
       let current_email = JSON.parse(localStorage.getItem("details"))
@@ -183,7 +189,7 @@
         })
                      // delete user profile ends
 
-    </script>
+    </script> -->
   </body>
   
 </html>

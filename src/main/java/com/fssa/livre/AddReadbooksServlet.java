@@ -18,45 +18,43 @@ import com.fssa.livre.services.exceptions.ServiceException;
 @WebServlet("/addreadbooks")
 public class AddReadbooksServlet extends HttpServlet {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doPost(req, resp);
-	}
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-//  it allows you to send text or HTML content as the response to an HTTP requesth
-		System.out.println("servlet called");
-		PrintWriter out = resp.getWriter();
-		int bookid = Integer.parseInt(req.getParameter("readbookid"));
-		String bookname = req.getParameter("bookname");
-		String imagelink = req.getParameter("imagelink");
-		String pdflink = req.getParameter("pdflink");
-		String category = req.getParameter("category");
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        PrintWriter out = resp.getWriter();
 
-		Readbooks readbooks = new Readbooks(bookid, bookname, imagelink, pdflink, category);
+        String bookname = req.getParameter("bookname");
+        String imagelink = req.getParameter("imagelink");
+        String pdflink = req.getParameter("pdflink");
+        String category = req.getParameter("category");
 
-		ReadbooksService readbooksService = new ReadbooksService();
-		List<Readbooks> books = null;
+        Readbooks readbooks = new Readbooks(bookname, imagelink, pdflink, category);
 
-		try {
-			if (readbooksService.addReadBooks(readbooks)) {
-				out.println("Readbook added successfully");
-				System.out.println("Added");
+        ReadbooksService readbooksService = new ReadbooksService();
+        List<Readbooks> books = null;
+
+        try {
+            if (readbooksService.addReadBooks(readbooks)) {
+                out.println("Readbook added successfully");
+                System.out.println("Added");
                 books = readbooksService.getAllReadbooks();
-				req.setAttribute("readbooksList", books);
-				resp.sendRedirect("GetAllReadbooksServlet");
-			
-			} else {
-				out.println("Failed to add readbook");
-				resp.sendRedirect("addreadbooks.jsp");
-			}
-		} catch (ServiceException e) {
-			e.printStackTrace();
-			out.println(e.getMessage());
-		}
+                req.setAttribute("readbooksList", books);
+               resp.sendRedirect("GetAllReadbooksServlet");
+  
+            } else {
+                out.println("Failed to add readbook");
+                resp.sendRedirect("addreadbooks.jsp");
+            }
+        } catch (ServiceException e) {
+            e.printStackTrace();
+            out.println(e.getMessage());
+        }
+    }
 
-	}
 }

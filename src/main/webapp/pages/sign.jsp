@@ -98,7 +98,7 @@ label {
 <body>
 <div>
      
-      <form id="form-sign" action="register" method="post">
+      <form id="form-sign" action="<%=request.getContextPath()%>/register" method="post">
         <div class="container">
           <div class="con-1">
             <h1>Sign Up</h1>
@@ -113,6 +113,7 @@ label {
               placeholder="Enter Email"
               title="Enter your email" 
               id="email"
+              name="email"
               
             /><br />
 
@@ -122,7 +123,7 @@ label {
               type="password"
               required
               placeholder="Enter Password"
-             
+             name="password"
               id="password"
             /><br />
 
@@ -132,6 +133,7 @@ label {
   type="text"
   placeholder="Enter Name"
   id="name"
+    name="name"
 /><br />
 
 <label for="phoneNumber" class="phone"><b>Phone Number</b></label>
@@ -140,6 +142,7 @@ label {
   type="tel"
   placeholder="Enter Phone Number"
   id="phoneNumber"
+    name="phoneNumber"
 /><br />
 
 <label for="age" class="age"><b>Age</b></label>
@@ -148,6 +151,7 @@ label {
   type="number"
   placeholder="Enter Age"
   id="age"
+    name="age"
 /><br />
 
 

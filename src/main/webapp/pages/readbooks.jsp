@@ -28,8 +28,11 @@
 		<jsp:include page="/header.jsp" />
 	</header>
 
-
-
+<div>
+<c:if test="${sessionScope.admin}">
+			<a href="<%=request.getContextPath()%>/readbooksform.jsp"
+				class="btn-success">Add Books</a>
+		</c:if>
 	<div class="book-box">
 
 	
@@ -72,12 +75,10 @@
 		</c:forEach>
 
 	</div>
+	</div>
 	<div>
 		<!-- Display "Add Books" button only if isAdmin is true -->
-		<c:if test="${sessionScope.admin}">
-			<a href="<%=request.getContextPath()%>/readbooksform.jsp"
-				class="btn-success">Add Books</a>
-		</c:if>
+		
 	</div>
 	<br>
 
