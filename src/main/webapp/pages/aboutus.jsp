@@ -110,90 +110,9 @@ href="./../assets/css/footer.css"
     </style>
   </head>
   <body>
-   <!--nav starts-->
-
-   <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      
-    <div class="container">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!--header-->
-
-      <div
-        class="collapse navbar-collapse header"
-        id="navbarSupportedContent"
-      >
-        <div class="head-logo">
-          <img class="logo" src="./../assets/images/dulogo.png" alt="logo" />
-        </div>
-       
-          <li class="nav-item head_btn">
-            <a class="navbar-brand" href="./mybooks.html">My books</a>
-          </li>
-       
-          <!--<li class="nav-item head_btn">
-            <a class="navbar-brand" href="sugges.html">suggestions</a>
-          </li>-->
-          
-       
-          <li class="nav-item dropdown head_btn">
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Browse
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="./pages/trendbooks.html">Trending books</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="./pages/readbooks.html">Read books</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="./pages/sugges.html">Suggestions</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="./pages/buybooks.html">Buy books</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="./pages/rack.html">Rack library</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="./pages/musics.html">Music</a>
-              </li>
-            </ul>
-          </li>
-    
-        </ul>      
-     
-        <li class="nav-item head_btn">
-          <a class="navbar-brand" href="./pages/contactus.html">contact us</a>
-        </li>
-
-        <li class="nav-item head_btn">
-          <a class="navbar-brand" href="./pages/login.html">log in </a>
-        </li>
-       
-<!-- <div id="google_element"></div> -->
-
-        <div class="flex-shrink-0 ">
-          <a href="./pages/profile.html">
-          <img src="./../assets/images/Screenshot 2023-04-04 135236.png"
-            alt="Generic placeholder image" class="img-fluid rounded-circle border border-dark border-3"
-            style="width:50px;"></a>
-
-          
-      </div>
-    </div>
-  
-  </nav>
+   <header>
+		<jsp:include page="/header.jsp" />
+	</header>
    
     <hr />
     <h1>ABOUT US</h1>

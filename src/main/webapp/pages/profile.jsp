@@ -58,7 +58,7 @@
          
   
            <div class="form-group form-check">
-        <button id="btn-delete" type="submit" name="updateProfile" href="<%=request.getContextPath()%>/UpadteProfile" value="Save changes">Update</button>
+        <a id="btn-delete" type="submit"  href="<%=request.getContextPath()%>/UpdateProfile" value="Save changes">Update</a>
         <button id="btn-back" href="./index.jsp">Back</button>
     
      

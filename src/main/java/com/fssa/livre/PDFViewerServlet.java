@@ -36,38 +36,35 @@ public class PDFViewerServlet extends HttpServlet {
 		UserService userService = new UserService();
 		
 
+		// ...
+
+		UserBooksService userBooksService = new UserBooksService(); // Assuming you have a service for managing user books
+
 		try {
-			int userId = userService.getUserIdByEmail(email);
-			System.out.println(userId);
-			
+		    int userId = userService.getUserIdByEmail(email);
+		    System.out.println(userId);
 
+		    if (!userBooksService.doesUserHaveBook(userId, bookId)) {
+		        UserBooks userBook = new UserBooks(userId, bookId);
+		        userBooksService.addUserBook(userBook);
 
+		        // Continue with the original logic to display the PDF viewer page
+		        System.out.println("Servlet called");
 
-//            if (bookIdParam == null || bookIdParam.isEmpty()) {
-//                // Invalid or missing book ID, handle accordingly (e.g., show an error message)
-//                response.sendRedirect(request.getContextPath()+"/error"); // Redirect to the error page
-//                return;
-//            }
+		        System.out.println(pdfUrl);
+		        request.setAttribute("pdflink", pdfUrl);
 
-			System.out.println(userId+" " + bookId);
-			// Create a UserBooks object and add it to the 'userbooks' table
-			UserBooks userBook = new UserBooks(userId, bookId);
-
-			UserBooksService.addUserBook(userBook);
-
-			// Continue with the original logic to display the PDF viewer page
-			System.out.println("Servlet called");
-
-			System.out.println(pdfUrl);
-			request.setAttribute("pdflink", pdfUrl);
-
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/pdf_viewer.jsp");
-			dispatcher.forward(request, response);
+		        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/pdf_viewer.jsp");
+		        dispatcher.forward(request, response);
+		    } else {
+		    	  request.setAttribute("pdflink", pdfUrl);
+		    	 RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/pdf_viewer.jsp");
+			        dispatcher.forward(request, response);
+		    }
 		} catch (ServiceException | com.fssa.livre.services.exceptions.ServiceException | DAOException e) {
-			// Handle the ServiceException (e.g., display an error message)
-			e.printStackTrace();
-			out.println(e.getMessage());
-
+		    // Handle the ServiceException (e.g., display an error message)
+		    e.printStackTrace();
+		    out.println(e.getMessage());
 		}
 	}
 }

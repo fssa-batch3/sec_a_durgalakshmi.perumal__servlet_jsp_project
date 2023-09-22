@@ -29,6 +29,23 @@
 	</header>
 
 <div>
+<form action="searchreadbooks" method="post">
+					<label for="category">Search Category:</label> <select
+						name="category" id="category">
+						<option value="ADVENTURE">ADVENTURE</option>
+						<option value="THRILLER">TRILLER</option>
+						<option value="ROMANTIC">ROMANTIC</option>
+						<option value="COMEDY">COMEDY</option>
+						<option value="CLASSIC">CLASSIC</option>
+						<option value="HORROR">HORROR</option>
+						<option value="DEVOTIONAL">DEVOTIONAL</option>
+					</select> <input type="submit" value="Search">
+				</form>
+
+				<a href=<%=request.getContextPath()%>/GetAllReadbooksServlet>Show All Books</a>
+
+	
+
 <c:if test="${sessionScope.admin}">
 			<a href="<%=request.getContextPath()%>/readbooksform.jsp"
 				class="btn-success">Add Books</a>
@@ -50,6 +67,11 @@
 					<table>
 						<tr>
 							<td class="bok_name">${readbooks.bookname}</td>
+						  
+							
+						</tr>
+						<tr>
+						  <td id="category" class="bok_cat">${readbooks.category}</td>
 						</tr>
 						<tr>
 							<td class="read-box"><c:choose>

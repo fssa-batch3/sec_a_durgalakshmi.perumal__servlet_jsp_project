@@ -33,7 +33,7 @@ public class SearchReadbooksByCategoryServlet extends HttpServlet {
             request.setAttribute("readbooksList", categoryResults);
 
       
-            RequestDispatcher dispatcher = request.getRequestDispatcher("display_all_readbooks.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("./pages/readbooks.jsp");
             dispatcher.forward(request, response);
         } catch (ServiceException e) {
             e.printStackTrace();

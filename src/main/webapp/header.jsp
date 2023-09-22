@@ -42,7 +42,7 @@
               <a class="navbar-brand" href="./index.jsp">Home</a>
             </li>
             <li class="nav-item head_btn">
-              <a class="navbar-brand" href="./pages/DisplayMyBooks.jsp">My books</a>
+              <a class="navbar-brand" href="<%=request.getContextPath()%>/MyBooksServlet">My books</a>
             </li>
               
             <!--<li class="nav-item head_btn">
