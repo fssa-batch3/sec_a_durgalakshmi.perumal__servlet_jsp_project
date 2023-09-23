@@ -9,36 +9,42 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.fssa.livre.dao.UserDAO;
+import com.fssa.livre.model.User;
+import com.fssa.livre.services.UserService;
+import com.fssa.livre.services.exceptions.ServiceException;
 
 import day11.practice.TaskDAO2.DAOException;
 
-
-@WebServlet("/UpdateProfile")
+@WebServlet("/EditProfileServlet")
 public class EditProfileServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        HttpSession session = request.getSession(false);
-        if (session != null) {
-            String email = (String) session.getAttribute("loggedInEmail");
-            String name = request.getParameter("fname");
-            int age = Integer.parseInt(request.getParameter("age"));
-            String phoneNumber = request.getParameter("ph_number");
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-            UserDAO userDAO = new UserDAO();
-            
-            try {
-                userDAO.updateUser(email, name, age, phoneNumber); // Update user details
-                response.sendRedirect("profile.jsp?message=Profile updated successfully"); // Redirect with success message
-            } catch (com.fssa.livre.dao.exception.DAOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		try {
+
+			HttpSession session = request.getSession(false);
+			if (session != null) {
+				String email = (String) session.getAttribute("loggedInEmail");
+				String name = request.getParameter("name");
+				int age = Integer.parseInt(request.getParameter("age"));
+				long phoneNumber = Long.parseLong(request.getParameter("phonenumber"));
+
+				User user = (User) request.getSession().getAttribute("userDetails");
+				System.out.println("Here is your User Data " + user);
+				user.setname(name);
+				user.setAge(age);
+				user.setPhoneNumber(phoneNumber);
+
+				UserService userService = new UserService();
+				userService.updateUserProfile(user);
+
+				response.sendRedirect(request.getContextPath() + "/ProfileServlet");
 			}
-        } else {
-            response.sendRedirect("login.jsp"); // Redirect to login if session is not available
-        }
-    }
-
-    // ... Other methods (e.g., doGet for displaying the updateProfile.jsp) go here
+		} catch (NumberFormatException | ServiceException e) {
+			e.printStackTrace();
+			response.sendRedirect(request.getContextPath() + "/error.jsp");
+		}
+	}
 }

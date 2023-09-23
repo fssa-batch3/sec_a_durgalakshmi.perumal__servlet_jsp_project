@@ -30,13 +30,13 @@
         <div class="form-group" >
          <% if (user != null) { %> 
         <label for="uname">Name:</label>
-<input type="text" disabled  placeholder="Enter your name" class="form-control" id="fname" maxlength="30" value="<%=user.getname() %>">
+<input type="text" readonly  placeholder="Enter your name" class="form-control" id="fname" maxlength="30" value="<%=user.getname() %>">
 
 <label for="uname">Age:</label>
-<input type="number" disabled  placeholder="Enter your Age" class="form-control" id="age" maxlength="3" value="<%=user.getAge()%>" >
+<input type="number" readonly  placeholder="Enter your Age" class="form-control" id="age" maxlength="3" value="<%=user.getAge()%>" >
 
 <label for="uname">Phone number:</label>
-<input type="number" disabled  placeholder="Enter your phone number" pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number" class="form-control" id="ph_number" maxlength="10" value="<%=user.getPhoneNumber()%>">
+<input type="number" readonly  placeholder="Enter your phone number" pattern="[1-9]{1}[0-9]{9}" title="Enter 10 digit mobile number" class="form-control" id="ph_number" maxlength="10" value="<%=user.getPhoneNumber()%>">
 
 
 <label for="email">Email:</label>
@@ -46,7 +46,7 @@
         class="form-control"
         id="email"
         name="email"
-        disabled
+        
         value="<%=user.getEmail()%>"
     />
  <% } else { %>

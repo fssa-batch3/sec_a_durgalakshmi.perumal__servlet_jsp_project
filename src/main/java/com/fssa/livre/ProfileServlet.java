@@ -32,10 +32,11 @@ public class ProfileServlet extends HttpServlet {
 	            if (email != null) {
 	                UserService userService = new UserService();
 	                User user = userService.getUserByEmail(email);
-
+	                System.out.println(user);
 	                
 	                if (user != null) {
 	                    request.setAttribute("userDetails", user);
+	                  
 	                } else {
 	                    response.sendRedirect("error.jsp");
 	                    return;

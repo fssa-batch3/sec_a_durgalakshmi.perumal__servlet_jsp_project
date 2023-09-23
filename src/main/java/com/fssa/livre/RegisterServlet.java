@@ -37,7 +37,7 @@ public class RegisterServlet extends HttpServlet {
 	        int age = Integer.parseInt(req.getParameter("age"));
 
 	        
-	        System.out.println("y");
+	  
 	    User user = new User(email, password, name, phoneNumber, age);
 	    UserService userService = new UserService();
 	    
