@@ -13,11 +13,7 @@
 </head>
 <body>
 
-<%-- <%
-
-User user = (User) request.getAttribute("userDetails");
-String userEmail = user.getEmail();
-%> --%>
+  
   
 
 
@@ -31,9 +27,20 @@ String userEmail = user.getEmail();
         class="form-control"
         id="email"
         name="email"
-
-    <%-- value="<%= userEmail %>"--%>   
-    />
+         value="<%= session.getAttribute("loggedInEmail") %>"
+         Readonly
+        
+    /> <br>  <div>
+        <label for="bookname" class="form-label">Book name:</label>
+        <input
+            id="book_name"
+            type="text"
+            class="form-control"
+            value="Hey You!"
+            name="bookname"
+            required
+        />
+    </div>
     <div>
         <label for="img" class="form-label">Book image URL:</label>
         <input
@@ -47,17 +54,7 @@ String userEmail = user.getEmail();
     </div>
     <br />
     <!-- div 2 -->
-    <div>
-        <label for="bookname" class="form-label">Book name:</label>
-        <input
-            id="book_name"
-            type="text"
-            class="form-control"
-            value="Hey You!"
-            name="bookname"
-            required
-        />
-    </div>
+ 
     <br />
     <!-- New div for description -->
     <div>

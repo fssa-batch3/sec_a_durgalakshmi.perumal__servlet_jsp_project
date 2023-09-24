@@ -26,7 +26,7 @@
      <% User user = (User) request.getAttribute("userDetails"); %>
 
     
-      <form id="form" method="get" action="<%=request.getContextPath()%>/ProfileServlet">
+      <form id="form" >
         <div class="form-group" >
          <% if (user != null) { %> 
         <label for="uname">Name:</label>

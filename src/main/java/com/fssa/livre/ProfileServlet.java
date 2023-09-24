@@ -42,7 +42,7 @@ public class ProfileServlet extends HttpServlet {
 	                    return;
 	                }
 
-	                RequestDispatcher dispatcher = request.getRequestDispatcher("./pages/profile.jsp");
+	                RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/profile.jsp");
 	                dispatcher.forward(request, response);
 	            } else {
 	                response.sendRedirect("login.jsp");

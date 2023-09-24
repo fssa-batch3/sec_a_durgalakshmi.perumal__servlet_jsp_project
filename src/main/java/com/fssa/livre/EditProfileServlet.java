@@ -24,25 +24,25 @@ public class EditProfileServlet extends HttpServlet {
 
 		try {
 
-			HttpSession session = request.getSession(false);
-			if (session != null) {
-				String email = (String) session.getAttribute("loggedInEmail");
+		
+				String email = request.getParameter("email");
 				String name = request.getParameter("name");
 				int age = Integer.parseInt(request.getParameter("age"));
 				long phoneNumber = Long.parseLong(request.getParameter("phonenumber"));
 
-				User user = (User) request.getSession().getAttribute("userDetails");
-				System.out.println("Here is your User Data " + user);
+				User user = new User();
+			
 				user.setname(name);
 				user.setAge(age);
 				user.setPhoneNumber(phoneNumber);
+				user.setEmail(email);
 
 				UserService userService = new UserService();
 				userService.updateUserProfile(user);
 
 				response.sendRedirect(request.getContextPath() + "/ProfileServlet");
-			}
-		} catch (NumberFormatException | ServiceException e) {
+		
+		} catch ( ServiceException e) {
 			e.printStackTrace();
 			response.sendRedirect(request.getContextPath() + "/error.jsp");
 		}

@@ -15,7 +15,7 @@
 
         <% User user = (User) request.getAttribute("userDetails"); %>
 
-        <form id="form" method="post" action="./EditProfileServlet">
+        <form id="form" method="post" action="<%=request.getContextPath() %>/EditProfileServlet">
             <div class="form-group">
                 <% if (user != null) { %>
                 <label for="uname">Name:</label>

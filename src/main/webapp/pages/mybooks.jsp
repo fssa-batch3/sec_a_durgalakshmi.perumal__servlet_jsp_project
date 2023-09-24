@@ -4,23 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<style>
-        .status-container {
-            margin: 20px;
-        }
 
-        .status-label {
-            font-weight: bold;
-        }
-
-        .duration-container {
-            margin-top: 20px;
-        }
-
-     #duration {
-    font-size: 16px;
-}
-</style>
 <head>
     <link rel="stylesheet" href="./assets/css/readbook.css" />
  
@@ -52,20 +36,7 @@
         <iframe src="<%= request.getAttribute("pdflink") %>" width="100%" height="100%"></iframe>
     </div>
 
-   <%-- <div class="status-container">
-        <span class="status-label">Status:</span>
-        <select id="status">
-            <option value="completed">Completed</option>
-            <option value="inprogress">In Progress</option>
-            <option value="notyet">Not Yet</option>
-        </select>
-    </div>
 
-    <div class="duration-container">
-        <span class="duration-label">Duration:</span>
-        <span id="duration-${readbook.readbookid}">Calculating...</span>
-    </div>
-    </div> --%>
 </c:forEach>
        
     </div>

@@ -32,7 +32,7 @@ public class UpdateProfileServlet extends HttpServlet {
             try {
                 User user = userDAO.getUserByEmail(email);
                 request.setAttribute("userDetails", user);
-              request.setAttribute("loggedInEmail" , email);
+
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/updateProfile.jsp");
                 dispatcher.forward(request, response);
             } catch (DAOException e) {
