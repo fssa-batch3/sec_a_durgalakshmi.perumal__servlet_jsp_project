@@ -34,35 +34,29 @@ public class PDFViewerServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		UserService userService = new UserService();
-		
-
-		// ...
-
-		UserBooksService userBooksService = new UserBooksService(); // Assuming you have a service for managing user books
+		UserBooksService userBooksService = new UserBooksService(); 
 
 		try {
 		    int userId = userService.getUserIdByEmail(email);
-		    System.out.println(userId);
 
 		    if (!userBooksService.doesUserHaveBook(userId, bookId)) {
 		        UserBooks userBook = new UserBooks(userId, bookId);
 		        userBooksService.addUserBook(userBook);
 
-		        // Continue with the original logic to display the PDF viewer page
-		        System.out.println("Servlet called");
+		   
 
 		        System.out.println(pdfUrl);
 		        request.setAttribute("pdflink", pdfUrl);
 
 		        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/pdf_viewer.jsp");
 		        dispatcher.forward(request, response);
-		    } else {
+		    
+		     } else {
 		    	  request.setAttribute("pdflink", pdfUrl);
 		    	 RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/pdf_viewer.jsp");
 			        dispatcher.forward(request, response);
 		    }
 		} catch (ServiceException | com.fssa.livre.services.exceptions.ServiceException | DAOException e) {
-		    // Handle the ServiceException (e.g., display an error message)
 		    e.printStackTrace();
 		    out.println(e.getMessage());
 		}

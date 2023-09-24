@@ -41,9 +41,7 @@
           <li class="nav-item head_btn">
               <a class="navbar-brand" href="./index.jsp">Home</a>
             </li>
-            <li class="nav-item head_btn">
-              <a class="navbar-brand" href="<%=request.getContextPath()%>/MyBooksServlet">My books</a>
-            </li>
+           
               
             <!--<li class="nav-item head_btn">
               <a class="navbar-brand" href="sugges.html">suggestions</a>
@@ -59,9 +57,18 @@ Boolean isAdmin = (Boolean) session.getAttribute("admin");
 String loggedInEmail = (String) session.getAttribute("loggedInEmail");
 if ((loggedInEmail != null && !loggedInEmail.isEmpty()) || (isAdmin != null && isAdmin == true)) {
 %>
+ <li class="nav-item head_btn">
+              <a class="navbar-brand" href="<%=request.getContextPath()%>/MyBooksServlet">My books</a>
+            </li>
+            
+            
+             <li class="nav-item head_btn">
+              <a class="navbar-brand" href="./pages/requestABook.jsp">Request a book</a>
+            </li>
    <li class="nav-item head_btn">
       <a class="navbar-brand" href="<%=request.getContextPath()%>/LogoutServlet">Log Out</a>
    </li>
+   
   <div class="flex-shrink-0">
     <a href="<%=request.getContextPath()%>/ProfileServlet">
         <img src="./assets/images/Screenshot 2023-04-04 135236.png" 
