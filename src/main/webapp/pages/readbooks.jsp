@@ -22,7 +22,70 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf_viewer.css">
 
 </head>
+<style>/* Style for the form */
+/* Style for the form */
+form {
+    margin-bottom: 20px;
+}
 
+label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+select {
+    padding: 5px;
+    font-size: 16px;
+}
+
+/* Style for the "Add Books" button */
+a.btn-success {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745; /* Green color for success */
+    color: #fff; /* White text color */
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+a.btn-success:hover {
+    background-color: #218838; /* Darker green color on hover */
+}
+
+
+input[type="submit"] {
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Style for the "Show All Books" link */
+a.show-all-books {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+a.show-all-books:hover {
+    background-color: #0056b3;
+}
+
+</style>
 <body>
 <header>
 		<jsp:include page="/header.jsp" />
@@ -32,6 +95,7 @@
 <form action="searchreadbooks" method="post">
 					<label for="category">Search Category:</label> <select
 						name="category" id="category">
+						<option value="ADVENTURE">        </option>
 						<option value="ADVENTURE">ADVENTURE</option>
 						<option value="THRILLER">TRILLER</option>
 						<option value="ROMANTIC">ROMANTIC</option>
@@ -42,7 +106,7 @@
 					</select> <input type="submit" value="Search">
 				</form>
 
-				<a href=<%=request.getContextPath()%>/GetAllReadbooksServlet>Show All Books</a>
+				<a class="show-all-books" href=<%=request.getContextPath()%>/GetAllReadbooksServlet>Show All Books</a>
 
 	
 
@@ -82,7 +146,7 @@
 
 									</c:when>
 									<c:otherwise>
-<a href="<%=request.getContextPath()%>/pdfViewer?pdflink=<c:out value='${readbooks.pdflink}' />&bookId=<c:out value='${readbooks.readbookid}' />" class="tbtn-1">Read</a>
+<a onclick="return checkLogin();" href="<%=request.getContextPath()%>/pdfViewer?pdflink=<c:out value='${readbooks.pdflink}' />&bookId=<c:out value='${readbooks.readbookid}' />" class="tbtn-1">Read</a>
 
 											
 											
@@ -143,6 +207,11 @@
 
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.js"></script>
+
+
+
+
+
 
 </body>
 </html>

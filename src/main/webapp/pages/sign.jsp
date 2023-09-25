@@ -96,7 +96,12 @@ label {
 
 </head>
 <body>
-<div>
+<div>	<% 
+			String errorMessage = request.getParameter("errorMessage");
+			if(errorMessage != null){
+				out.println("<p>"+errorMessage+"</p>");
+			}
+		%>
      
       <form id="form-sign" action="<%=request.getContextPath()%>/register" method="post">
         <div class="container">
@@ -107,23 +112,28 @@ label {
             <!-- email -->
             <label for="email" class="email"><b>Email</b></label>
             <input
-            
+            required
               class="fb"
               type="email"
               placeholder="Enter Email"
               title="Enter your email" 
               id="email"
               name="email"
+               title="Enter valid Email" 
+         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
               
             /><br />
 
             <label for="pwd" class="psw"><b>Password</b></label>
             <input
+             title="Password must contain at least one capital letter, one small letter, one special character, one number, and have a minimum length of 8 characters." 
+             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=])(?=.*[^\s]).{8,}$" 
               class="fb"
               type="password"
               required
               placeholder="Enter Password"
              name="password"
+             required
               id="password"
             /><br />
 
@@ -134,6 +144,10 @@ label {
   placeholder="Enter Name"
   id="name"
     name="name"
+    required
+     title="Name should only contain alphabetic characters."
+  pattern="^[a-zA-Z]*$"
+    
 /><br />
 
 <label for="phoneNumber" class="phone"><b>Phone Number</b></label>
@@ -143,6 +157,9 @@ label {
   placeholder="Enter Phone Number"
   id="phoneNumber"
     name="phoneNumber"
+    required
+     title="Phone number should have exactly 10 digits and start with 8, 6, 7, or 9."
+  pattern="[6-9]\d{9}"
 /><br />
 
 <label for="age" class="age"><b>Age</b></label>
@@ -152,6 +169,10 @@ label {
   placeholder="Enter Age"
   id="age"
     name="age"
+    required
+    title="Age should be between 18 and 100."
+  min="5"
+  max="90"
 /><br />
 
 

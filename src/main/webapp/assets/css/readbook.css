@@ -8,6 +8,7 @@
     width: 300px; color: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease-in-out;
         margin-bottom: 10%;
+     
     
  
      
@@ -16,8 +17,8 @@
  .book-box{
   display: grid;
    grid-template-columns: 25% 25% 25% 25%;
-    margin-bottom: 80%;
-    padding-top:18%;
+    
+    padding-top:10%;
 
   
  }

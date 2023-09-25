@@ -36,9 +36,11 @@
           id="navbarSupportedContent"
         >
           <div class="head-logo">
-            <img class="logo" id="logo" src="<%=request.getContextPath() %>/assets/images/dulogo.png" alt="logo" />
+            <img class="logo" id="logo" src="./assets/images/dulogo.png" alt="logo" />
           </div>
-        
+          <li class="nav-item head_btn">
+              <a class="navbar-brand" href="./index.jsp">Home</a>
+            </li>
            
               
             <!--<li class="nav-item head_btn">
@@ -46,57 +48,38 @@
             </li>-->
             
          
+       
 <% 
 Boolean isAdmin = (Boolean) session.getAttribute("admin");
 String loggedInEmail = (String) session.getAttribute("loggedInEmail");
 if ((loggedInEmail != null && !loggedInEmail.isEmpty()) || (isAdmin != null && isAdmin == true)) {
 %>
-
-  <li class="nav-item head_btn">
-              <a class="navbar-brand" href="<%=request.getContextPath() %>/index.jsp">Home</a>
+ <li class="nav-item head_btn">
+              <a class="navbar-brand" href="<%=request.getContextPath()%>/MyBooksServlet">My books</a>
             </li>
-    <!-- Show "Log Out" and user profile when logged in -->
-    <li class="nav-item head_btn">
-        <a class="navbar-brand" href="<%=request.getContextPath()%>/LogoutServlet">Log Out</a>
-    </li>
+            
+            
+             <li class="nav-item head_btn">
+              <a class="navbar-brand" href="./pages/requestABook.jsp">Request a book</a>
+            </li>
+   <li class="nav-item head_btn">
+      <a class="navbar-brand" href="<%=request.getContextPath()%>/LogoutServlet">Log Out</a>
+   </li>
+   
+  <div class="flex-shrink-0">
+    <a href="<%=request.getContextPath()%>/ProfileServlet">
+        <img src="./assets/images/Screenshot 2023-04-04 135236.png" 
+             alt="Generic placeholder image" class="img-fluid rounded-circle border border-dark border-3"
+             style="width:50px;">
+    </a>
+</div>
 
-<% 
-    if (isAdmin != null && isAdmin == true) {
-%>
-     <!-- Show "Book Request" for admin -->
-     <li class="nav-item head_btn">
-         <a class="navbar-brand" href="./pages/requestABook.jsp">Book Request</a>
-     </li>
-<% 
-     } else {
-%>
-    <!-- Show "My books" and "Request a book" for regular users -->
-    
-
-    <li class="nav-item head_btn">
-        <a class="navbar-brand" href="<%=request.getContextPath()%>/MyBooksServlet">My books</a>
-    </li>
-    <li class="nav-item head_btn">
-        <a class="navbar-brand" href="<%=request.getContextPath() %>/pages/requestABook.jsp">Request a book</a>
-    </li>
-    
-    
-    <div class="flex-shrink-0">
-        <a href="<%=request.getContextPath()%>/ProfileServlet">
-            <img src="<%=request.getContextPath() %>/assets/images/Screenshot 2023-04-04 135236.png" 
-                 alt="Generic placeholder image" class="img-fluid rounded-circle border border-dark border-3"
-                 style="width:50px;">
-        </a>
-    </div>
-<% 
-    }
-} else {
-%>
-   <!-- Show "Log In" for users who are not logged in -->
+<% } else { %>
    <li class="nav-item head_btn">
       <a class="navbar-brand" href="./pages/login.jsp">Log In</a>
    </li>
 <% } %>
+
 
 
         

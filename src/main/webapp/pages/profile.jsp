@@ -46,7 +46,7 @@
         class="form-control"
         id="email"
         name="email"
-        
+        readonly
         value="<%=user.getEmail()%>"
     />
  <% } else { %>
@@ -59,7 +59,7 @@
   
            <div class="form-group form-check">
         <a id="btn-delete" type="submit"  href="<%=request.getContextPath()%>/UpdateProfile" value="Save changes">Update</a>
-        <button id="btn-back" href="./index.jsp">Back</button>
+        <a id="btn-back" href="./index.jsp">Back</a>
     
      
          

@@ -112,7 +112,7 @@ href="./../assets/css/footer.css"
   <body>
    <header>
 		<jsp:include page="/header.jsp" />
-	</header>
+</header>
    
     <hr />
     <h1>ABOUT US</h1>

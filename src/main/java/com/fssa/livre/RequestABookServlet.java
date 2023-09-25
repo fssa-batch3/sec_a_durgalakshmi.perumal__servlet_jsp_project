@@ -1,6 +1,8 @@
 package com.fssa.livre;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,6 +39,12 @@ public class RequestABookServlet extends HttpServlet {
 
         UserRequestABookService userRequestABookService = new UserRequestABookService();
         boolean requestSuccess = userRequestABookService.requestBook(userEmail, bookName, imageUrl, description);
+        List<UserRequestABook> bookRequests = userRequestABookService.getAllBookRequests();
+
+     // Set the list as an attribute in the request
+     request.setAttribute("bookRequests", bookRequests);
+		response.sendRedirect("index.jsp");
+
 
     } catch ( Exception e) {
 		e.printStackTrace();

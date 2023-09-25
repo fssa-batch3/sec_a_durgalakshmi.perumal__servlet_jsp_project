@@ -50,6 +50,7 @@ public class LoginServlet extends HttpServlet {
                 RequestDispatcher userDispatcher = request.getRequestDispatcher("index.jsp");
                 userDispatcher.forward(request, response);
             } else {
+            	
                 out.println("Email and password are Invalid");
             }
         } catch (ServiceException e) {

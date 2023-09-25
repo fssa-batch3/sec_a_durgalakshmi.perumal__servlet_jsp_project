@@ -225,9 +225,7 @@
 
 <body>
 <%-- <jsp:include page="header.jsp"></jsp:include>--%>	
-
-
-		<% 
+	<% 
 			String errorMessage = request.getParameter("errorMessage");
 			if(errorMessage != null){
 				out.println("<p>"+errorMessage+"</p>");
@@ -238,11 +236,13 @@
   <form id="form-log" action="<%=request.getContextPath()%>/login" method="post">
     <div class="user-box">
       <label for="Email">Email: </label><br>
-      <input id="Email" type="email" name="email"  placeholder="Enter email"><br>
+      <input id="Email" type="email" name="email"  title="Enter valid Email" 
+             pattern="[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+"   placeholder="Enter email"><br>
     </div>
     <div class="user-box">
       <label for="Password">Password: </label><br>
-      <input type="password" id="Password"  name="password" placeholder="Enter password"><br>
+      <input type="password" id="Password"  name="password" placeholder="Enter password"  title="Enter the valid password" 
+             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=])(?=.*[^\s]).{8,}$" ><br>
     </div>
     <button type="submit">Submit</button>
   </form>
@@ -252,4 +252,5 @@
 </div>
 
 </body>
+  
 </html>

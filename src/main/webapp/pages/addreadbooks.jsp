@@ -17,23 +17,23 @@
         <!-- div 1 -->
         <div>
           <label  for="img" class="form-label">Image url:</label>
-          <input id="img_url" type="text" class="form-control" value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfgixp7l1nMDGmmQW81FrvygGhVzfwEAKDlg&usqp=CAU"name="imagelink" required />
+          <input id="img_url" type="text" class="form-control" name="imagelink" required />
         </div>
         <br/>
         <!-- div 2 -->
         <div>
           <label for="text" class="form-label">Book name:</label>
-          <input  id="bok_name" type="text" class="form-control" value="The East India" name="bookname" required />
+          <input  id="bok_name" type="text" class="form-control"  name="bookname" required />
         </div>
         <br/>
         <!-- div 3 -->
         <div>
           <label  for="text" class="form-label">Pdf url:</label>
-          <input  id="pdf_url" type="text" class="form-control" value="https://www.pdfbooksworld.com/bibi/pre.html?book=186.epub" name="pdflink" required />
+          <input  id="pdf_url" type="text" class="form-control"  name="pdflink" required />
         </div>
         <div class="col">
           <label for="section" class="form-label">Section </label>
-          <select id="books" class="form-control" name="category" value="CLASSIC" required>
+          <select id="books" class="form-control" name="category"  required>
               <option value=""></option>
                  <option value="adventure">ADVENTURE</option>
               <option value="triller">THRILLER</option>
