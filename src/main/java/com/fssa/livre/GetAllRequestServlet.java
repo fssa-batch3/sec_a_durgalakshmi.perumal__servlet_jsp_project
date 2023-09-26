@@ -15,38 +15,29 @@ import com.fssa.livre.model.UserRequestABook;
 import com.fssa.livre.services.UserRequestABookService;
 import com.fssa.livre.services.exceptions.ServiceException;
 
-/**
- * Servlet implementation class GetAllRequestServlet
- */
 @WebServlet("/GetAllRequestServlet")
 public class GetAllRequestServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        // Check if the user is logged in
-        HttpSession session = request.getSession(false);
-        if (session != null && session.getAttribute("loggedInUser") != null) {
-            try {
-                // Replace with your service for retrieving book requests
-                List<UserRequestABook> bookRequests = UserRequestABookService.getBookRequestsForLoggedInUser();
+	protected void doGet(HttpServletRequest httpRequest, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = httpRequest.getSession(false);
+		if (session != null && session.getAttribute("loggedInEmail") != null) {
+			String userEmail = (String) session.getAttribute("loggedInEmail");
+			System.out.println(userEmail + " getrequestbookspagetest");
+			try {
+				UserRequestABookService userRequestABookService = new UserRequestABookService();
+				List<UserRequestABook> userRequestABookList = userRequestABookService.getBookRequestsForLoggedInUser(userEmail);
+			
 
-                // Set the list of book requests as a request attribute
-                request.setAttribute("bookRequests", bookRequests);
+				httpRequest.setAttribute("UserRequestABookList", userRequestABookList);
 
-                // Forward the request to a JSP page for rendering
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/bookRequests.jsp");
-                dispatcher.forward(request, response);
-            } catch (ServiceException e) {
-                // Handle the ServiceException (e.g., display an error message)
-                e.printStackTrace();
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "An error occurred.");
-            }
-        } else {
-            // User is not logged in, you can redirect to a login page
-            response.sendRedirect("login.jsp");
-        }
-    }
+				RequestDispatcher dispatcher = httpRequest.getRequestDispatcher("./pages/BookrequestList.jsp");
+				dispatcher.forward(httpRequest, response);
+			} catch (ServiceException e) {
+				e.printStackTrace();
+				response.sendRedirect("/login.jsp");
+			}
+		}
+	}
 }
-
-

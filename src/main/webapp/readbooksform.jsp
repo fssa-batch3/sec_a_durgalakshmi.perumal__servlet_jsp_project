@@ -36,7 +36,7 @@
           <select id="books" class="form-control" name="category"  required>
               <option value=""></option>
                  <option value="adventure">ADVENTURE</option>
-              <option value="triller">THRILLER</option>
+              <option value="thriller">THRILLER</option>
               <option value="romantic">ROMANTIC</option>
               <option value="comedy">COMEDY</option>
               <option value="classic">CLASSIC</option>

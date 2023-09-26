@@ -42,13 +42,14 @@
 
 </style>
 <body>
-<c:if test="${sessionScope.admin}">
+<%-- <c:if test="${sessionScope.admin}">
 			<div class="divv">
 
 <h3 class="hh">Hey!,See your request here.</h3>
 <a class="linkk" href="<%=request.getContextPath()%>/GetAllRequestServlet">My Book Request</a> 
 </div>
-		</c:if>
+		</c:if>--%>
+
    <br />
  <form id="bookform" action="<%=request.getContextPath()%>/RequestABookServlet" method="post">
     <div class="mb-3 form-control container">
@@ -72,8 +73,18 @@
     required
     title="Enter the book's name"
   />
-</div>
-
+</div><br>
+<div>
+  <label for="book_name" class="form-label">Author Name:</label>
+  <input
+    id="author_name"
+    type="text"
+    class="form-control"
+    name="authorname"
+    required
+    title="Enter the author's name"
+  />
+</div><br>
 <div>
   <label for="img_url" class="form-label">Book Image URL:</label>
   <input
@@ -116,7 +127,7 @@
 <div class="divv">
 
 <h3 class="hh">Hey!,See your request here.</h3>
-<a class="linkk" href="<%=request.getContextPath()%>/GetAllRequestServlet">My Book Request</a> 
+<a class="linkk" href="<%=request.getContextPath()%>/GetAllRequestServlet" method="Get">My Book Request</a>
 </div>
 </body>
 </html>

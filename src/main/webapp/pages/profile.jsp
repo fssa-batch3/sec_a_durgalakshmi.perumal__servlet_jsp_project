@@ -58,9 +58,12 @@
          
   
            <div class="form-group form-check">
-        <a id="btn-delete" type="submit"  href="<%=request.getContextPath()%>/UpdateProfile" value="Save changes">Update</a>
+        <a class="btn btn-success" type="submit"  href="<%=request.getContextPath()%>/UpdateProfile" value="Save changes">Update</a>
         <a id="btn-back" href="./index.jsp">Back</a>
     
+ 
+        <a class="navbar-brand" id="btn-delete" href="<%=request.getContextPath()%>/LogoutServlet">Log Out</a>
+   
      
          
         

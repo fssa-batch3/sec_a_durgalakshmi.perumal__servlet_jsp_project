@@ -66,12 +66,12 @@
 </div>
 
 <!-- section3 -->
-<div>
+<%-- <div>
   <img class="design_img2" id="2img" alt="img" src="./assets/images/About (1).png">
-  <p class="shop_para para">TIRED TO SHOP?<br>"Shop from the comfort of your home - convenience at your doorstep."</p>
+  <p class="shop_para para"><br>"Shop from </p>
 <a href="./pages/buybooks.jsp">  <button class="des_2_btn">SHOP HERE!</button></a>
  
-</div>
+</div>--%>
 
 <!-- suggestion -->
 <div class="suggestion_div">
@@ -111,40 +111,41 @@
   <div class="list-1 ">
     <h4 class="para" >about</h4>
 
-    <a href="#">mind free</a>
-    <a href="#"> useful for students</a>
-    <a href="#">relax</a>
-    <a href="#">dreamful</a>
-    <a href="#">motivation</a>
-    <a href="#">brave</a>
-    <a href="#">mental health</a>
+    <a>mind free</a>
+<a>useful for students</a>
+<a>relax</a>
+<a>dreamful</a>
+<a>motivation</a>
+<a>brave</a>
+<a>mental health</a>
+
   </div>
   <div class="list-1">
     <h4 class="para">supports</h4>
-    <a href="#">books</a>
-    <a href="#">comics</a>
-    <a href="#">stories</a>
-    <a href="#">thoughtful</a>
-     <a href="#">emotional</a>
-    <a href="#">reality</a>
-    <a href="#">history</a>
+    <a>books</a>
+    <a>comics</a>
+    <a>stories</a>
+    <a>thoughtful</a>
+    <a>emotional</a>
+    <a>reality</a>
+    <a>history</a>
   </div>
   <div class="list-1">
     <h4 class="para">list</h4>
-    <a href="">kids</a>
-    <a href="#">romantic</a>
-    <a href="#">classic</a>
-    <a href="#">trend</a>
-    <a href="#">triller</a>
-    <a href="#">textbooks</a>
-    <a href="#">buybooks</a>
+    <a >kids</a>
+    <a >romantic</a>
+    <a >classic</a>
+    <a >trend</a>
+    <a >triller</a>
+    <a >textbooks</a>
+    <a >buybooks</a>
   </div>
 
   <div class="list_3">
     <h1 class="para">Contact us with</h1>
-  <a href="#" ><img class="fi" src="./assets/images/fb.jpg" alt="fb" /></a>
-  <a href="#" ><img class="fi" src="./assets/images/twitter.png" alt="twitter" /></a>
-  <a href="#" > <img class="fi" src="./assets/images/insta_icon.jpeg" alt="insta" /></a>
+  <a href="" ><img class="fi" src="./assets/images/fb.jpg" alt="fb" /></a>
+  <a href="" ><img class="fi" src="./assets/images/twitter.png" alt="twitter" /></a>
+  <a href="" > <img class="fi" src="./assets/images/insta_icon.jpeg" alt="insta" /></a>
   </div>
 </div>
 <div class="copyrights">

@@ -92,12 +92,12 @@ a.show-all-books:hover {
 	</header>
 
 <div>
-<form action="searchreadbooks" method="post">
+<%--<form action="searchreadbooks" method="post">
 					<label for="category">Search Category:</label> <select
 						name="category" id="category">
 						<option value="ADVENTURE">        </option>
 						<option value="ADVENTURE">ADVENTURE</option>
-						<option value="THRILLER">TRILLER</option>
+						<option value="THRILLER">THRILLER</option>
 						<option value="ROMANTIC">ROMANTIC</option>
 						<option value="COMEDY">COMEDY</option>
 						<option value="CLASSIC">CLASSIC</option>
@@ -106,7 +106,8 @@ a.show-all-books:hover {
 					</select> <input type="submit" value="Search">
 				</form>
 
-				<a class="show-all-books" href=<%=request.getContextPath()%>/GetAllReadbooksServlet>Show All Books</a>
+				<a class="show-all-books" href=<%=request.getContextPath()%>/GetAllReadbooksServlet>Show All Books</a> --%>
+
 
 	
 
@@ -167,39 +168,52 @@ a.show-all-books:hover {
 		
 	</div>
 	<br>
+<!-- footer -->
+<div class="section_4">
+  <div class="list-1 ">
+    <h4 class="para" >about</h4>
 
-	<div class="section_4">
-		<div class="list-1">
-			<h4>about</h4>
+    <a>mind free</a>
+<a>useful for students</a>
+<a>relax</a>
+<a>dreamful</a>
+<a>motivation</a>
+<a>brave</a>
+<a>mental health</a>
 
-			<a href="#">mind free</a> <a href="#"> useful for students</a> <a
-				href="#">relax</a> <a href="#">dreamful</a> <a href="#">motivation</a>
-			<a href="#">brave</a> <a href="#">mental health</a>
-		</div>
-		<div class="list-1">
-			<h4>supports</h4>
-			<a href="#">books</a> <a href="#">comics</a> <a href="#">stories</a>
-			<a href="#">thoughtful</a> <a href="#">emotional</a> <a href="#">reality</a>
-			<a href="#">history</a>
-		</div>
-		<div class="list-1">
-			<h4>list</h4>
-			<a href="#">kids</a> <a href="#">romantic</a> <a href="#">classic</a>
-			<a href="#">trend</a> <a href="#">triller</a> <a href="#">textbooks</a>
-			<a href="#">buybooks</a>
-		</div>
+  </div>
+  <div class="list-1">
+    <h4 class="para">supports</h4>
+    <a>books</a>
+    <a>comics</a>
+    <a>stories</a>
+    <a>thoughtful</a>
+    <a>emotional</a>
+    <a>reality</a>
+    <a>history</a>
+  </div>
+  <div class="list-1">
+    <h4 class="para">list</h4>
+    <a >kids</a>
+    <a >romantic</a>
+    <a >classic</a>
+    <a >trend</a>
+    <a >triller</a>
+    <a >textbooks</a>
+    <a >buybooks</a>
+  </div>
 
-		<div class="list_3">
-			<h1>Contact us with</h1>
-			<a href="#"><img class="fi" src="../assets/images/fb.jpg"
-				alt="fb" /></a> <a href="#"><img class="fi"
-				src="../assets/images/twitter.png" alt="twitter" /></a> <a href="#">
-				<img class="fi" src="../assets/images/insta_icon.jpeg" alt="insta" />
-			</a>
-		</div>
-	</div>
-	<div class="copyrights">@copyrights 2023 Livre | All rights
-		reserved</div>
+  <div class="list_3">
+    <h1 class="para">Contact us with</h1>
+  <a href="" ><img class="fi" src="./assets/images/fb.jpg" alt="fb" /></a>
+  <a href="" ><img class="fi" src="./assets/images/twitter.png" alt="twitter" /></a>
+  <a href="" > <img class="fi" src="./assets/images/insta_icon.jpeg" alt="insta" /></a>
+  </div>
+</div>
+<div class="copyrights">
+  @copyrights 2023 Livre | All rights reserved
+</div>
+
 
 
 

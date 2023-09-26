@@ -32,6 +32,7 @@ public class RequestABookServlet extends HttpServlet {
 
         UserRequestABook userRequestABook = new UserRequestABook();
         userRequestABook.setemail(userEmail);
+        
         userRequestABook.setBookName(bookName);
         userRequestABook.setImageUrl(imageUrl);
         userRequestABook.setDescription(description);

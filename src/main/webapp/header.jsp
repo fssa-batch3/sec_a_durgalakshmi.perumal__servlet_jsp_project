@@ -56,17 +56,18 @@ if ((loggedInEmail != null && !loggedInEmail.isEmpty()) || (isAdmin != null && i
               <a class="navbar-brand" href="<%=request.getContextPath() %>/index.jsp">Home</a>
             </li>
     <!-- Show "Log Out" and user profile when logged in -->
-    <li class="nav-item head_btn">
-        <a class="navbar-brand" href="<%=request.getContextPath()%>/LogoutServlet">Log Out</a>
-    </li>
+   
 
 <% 
     if (isAdmin != null && isAdmin == true) {
 %>
      <!-- Show "Book Request" for admin -->
      <li class="nav-item head_btn">
-         <a class="navbar-brand" href="./pages/requestABook.jsp">Book Request</a>
+         <a class="navbar-brand" href="<%=request.getContextPath()%>/GetRequestAdminServlet" method="Get">Book Request</a>
      </li>
+      <li class="nav-item head_btn">
+        <a class="navbar-brand" href="<%=request.getContextPath()%>/LogoutServlet">Log Out</a>
+    </li>
 <% 
      } else {
 %>
