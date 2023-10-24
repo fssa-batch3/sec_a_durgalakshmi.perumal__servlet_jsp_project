@@ -9,57 +9,41 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="./assets/css/readbook.css" />
+
 <style>
-.container {
-	margin: 20px;
+      body {
+
+    color: #FFF;
+      text-align: center;
+  }
+    
+      .container {
+        margin-top:5%;
+       text-align: center;
+       
+        
+    }
+    
+    h1 {
+  font-family: "Your Desired Font", sans-serif; 
+  color: #000080;
+  text-align: center;
+}
+        .bok_dis {
+  font-size: 18px;
+  font-weight: bold;
+  color: #87CEEB;
+    font-family: "Your Desired Font", sans-serif;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Adjust as needed */
+    margin-left:5%;
+       margin-right:5%;
 }
 
-.card {
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	margin: 10px;
-	padding: 10px;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
-
-.card-img-top {
-	max-width: 100%;
-	height: auto;
-}
-
-.card-title {
-	font-size: 1.25rem;
-	font-weight: bold;
-}
-
-.card-text {
-	font-size: 1rem;
-}
-
-.card-status {
-	font-weight: bold;
-	color: #333;
-}
-
-button {
-	margin-top: 10px;
-	padding: 5px 10px;
-	border: none;
-	background-color: #007BFF;
-	color: #fff;
-	border-radius: 5px;
-	cursor: pointer;
-}
-
-button:hover {
-	background-color: #0056b3;
-}
-
-/* Style for the reason paragraph when a request is declined */
-p {
-	color: #FF0000;
-	font-style: italic;
-}
 </style>
 </head>
 <body>
@@ -67,15 +51,15 @@ p {
 		<h1>Book Requests</h1>
 		<div class="row">
 			<c:forEach var="request" items="${UserRequestABookList}">
-    <div class="col-md-4">
-        <div class="card">
+   
+        <div class="box-1">
             <img src="${request.imageUrl}" class="card-img-top" alt="Book Image">
             <div class="card-body">
-                <h5 class="card-title">${request.bookName}</h5>
-                <p class="card-text">${request.description}</p>
-                <p class="card-status">${request.status}</p>
+                <h5 class="bok_name">${request.bookName}</h5>
+                <p class="bok_dis">${request.description}</p>
+                <p class="bok_cat">${request.status}</p>
             </div>
-        </div>
+       
     </div>
 </c:forEach>
 

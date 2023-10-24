@@ -72,7 +72,7 @@ if ((loggedInEmail != null && !loggedInEmail.isEmpty()) || (isAdmin != null && i
      } else {
 %>
     <!-- Show "My books" and "Request a book" for regular users -->
-    
+           
 
     <li class="nav-item head_btn">
         <a class="navbar-brand" href="<%=request.getContextPath()%>/MyBooksServlet">My books</a>

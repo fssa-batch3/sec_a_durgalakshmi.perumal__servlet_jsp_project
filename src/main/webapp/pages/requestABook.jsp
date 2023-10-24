@@ -74,17 +74,7 @@
     title="Enter the book's name"
   />
 </div><br>
-<div>
-  <label for="book_name" class="form-label">Author Name:</label>
-  <input
-    id="author_name"
-    type="text"
-    class="form-control"
-    name="authorname"
-    required
-    title="Enter the author's name"
-  />
-</div><br>
+
 <div>
   <label for="img_url" class="form-label">Book Image URL:</label>
   <input
@@ -113,12 +103,10 @@
 </div>
     
     <br />
- <div class="d-grid d-md-block container">
-  <button class="btn btn-success" type="submit">Submit</button>
-</div>
-<div class="d-grid d-md-block container" style="margin-top: 10px;">
-  <a class="btn btn-primary" href="<%=request.getContextPath() %>/index.jsp">Back</a>
-</div>
+ <div class="button-container">
+            <button class="btn btn-success" type="submit">Submit</button>
+            <a class="btn btn-primary" href="<%=request.getContextPath() %>/index.jsp">Back</a>
+        </div>
 </div>
 </form>
 

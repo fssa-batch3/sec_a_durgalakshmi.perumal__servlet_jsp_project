@@ -4,57 +4,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+ <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+        <link rel="stylesheet" href="./assets/css/readbook.css" />
+    
     <style>
+    
+      body {
+
+    color: #FFF;
+      text-align: center;
+  }
+    
       .container {
-        margin: 20px;
+        margin-top:5%;
+       text-align: center;
+        
     }
+    .bok_dis {
+  font-size: 18px;
+  font-weight: bold;
+  color: #87CEEB;
+    font-family: "Your Desired Font", sans-serif;
+}
+h1 {
+  font-family: "Your Desired Font", sans-serif; 
+  color: #000080;
+  text-align: center;
+}
 
-    .card {
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        margin: 10px;
-        padding: 10px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    }
+    
 
-    .card-img-top {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .card-title {
-        font-size: 1.25rem;
-        font-weight: bold;
-    }
-
-    .card-text {
-        font-size: 1rem;
-    }
-
-    .card-status {
-        font-weight: bold;
-        color: #333;
-    }
-
-    button {
-        margin-top: 10px;
-        padding: 5px 10px;
-        border: none;
-        background-color: #007BFF;
-        color: #fff;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background-color: #0056b3;
-    }
-
-    /* Style for the reason paragraph when a request is declined */
-    p {
-        color: #FF0000;
-        font-style: italic;
-    }
     </style>
 </head>
 <body>
@@ -64,19 +46,25 @@
     <div class="row">
         <c:forEach var="request" items="${bookRequests}">
             <div class="col-md-4">
-                <div class="card">
+            <div class="container">
+                <div class="box-1">
                     <img src="${request.imageUrl}" class="card-img-top" alt="Book Image">
                     <div class="card-body">
-                        <h5 class="card-title">${request.bookName}</h5>
-                        <p class="card-text">${request.description}</p>
-                        <p class="card-status">${request.status}</p>
+                        <h5 class="bok_name">${request.bookName}</h5>
+                        <p class="bok_dis">${request.description}</p>
+                        <p class="bok_cat">${request.status}</p>
                         
                         
                     </div>
-                    
-                    <a class="btn btn-success" href="<%=request.getContextPath()%>/AcceptStatusServlet?requestId=${request.requestId}">Accept</a>
-                    <a class="btn btn-primary" href="<%=request.getContextPath()%>/DeclineStatusServlet?requestId=${request.requestId}">Decline</a>
+                   <div style="display: inline-block; margin-right: 10px;">
+  <a class="btn btn-success" href="<%=request.getContextPath()%>/AcceptStatusServlet?requestId=${request.requestId}">Accept</a>
+</div>
+<div style="display: inline-block;">
+  <a class="btn btn-danger" href="<%=request.getContextPath()%>/DeclineStatusServlet?requestId=${request.requestId}">Decline</a>
+</div>
+                   
                 </div>
+            </div>
             </div>
         </c:forEach>
     </div>
