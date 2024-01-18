@@ -24,25 +24,24 @@ public class EditProfileServlet extends HttpServlet {
 
 		try {
 
-		
-				String email = request.getParameter("email");
-				String name = request.getParameter("name");
-				int age = Integer.parseInt(request.getParameter("age"));
-				long phoneNumber = Long.parseLong(request.getParameter("phonenumber"));
+			String email = request.getParameter("email");
+			String name = request.getParameter("name");
+			int age = Integer.parseInt(request.getParameter("age"));
+			long phoneNumber = Long.parseLong(request.getParameter("phonenumber"));
 
-				User user = new User();
-			
-				user.setname(name);
-				user.setAge(age);
-				user.setPhoneNumber(phoneNumber);
-				user.setEmail(email);
+			User user = new User();
 
-				UserService userService = new UserService();
-				userService.updateUserProfile(user);
+			user.setname(name);
+			user.setAge(age);
+			user.setPhoneNumber(phoneNumber);
+			user.setEmail(email);
 
-				response.sendRedirect(request.getContextPath() + "/ProfileServlet");
-		
-		} catch ( ServiceException e) {
+			UserService userService = new UserService();
+			userService.updateUserProfile(user);
+
+			response.sendRedirect(request.getContextPath() + "/ProfileServlet");
+
+		} catch (ServiceException e) {
 			e.printStackTrace();
 			response.sendRedirect(request.getContextPath() + "/error.jsp");
 		}

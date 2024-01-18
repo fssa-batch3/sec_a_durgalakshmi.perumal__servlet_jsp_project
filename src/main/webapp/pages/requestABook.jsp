@@ -8,13 +8,41 @@
    <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-    />
+    /><link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+  />
+  <link
+  rel="stylesheet"
+  href="./../assets/css/header.css"
+/>
+  <link
+  rel="stylesheet"
+  href="./../assets/css/footer.css"
+/>
 <meta charset="ISO-8859-1">
 <title>Request a book</title>
 
 </head>
 <style>
 
+.body{
+  background-color:#2e5170;
+}
+.head {
+background-color: white;
+width: 100%;
+margin-top: -1px;
+hight:20%;
+
+
+
+}
+.logo {
+    height: 130px;
+    margin-top: 10px;
+    background-color: var(--logo-white);
+}
 .divv {
     display: flex;
     flex-direction: column;
@@ -42,6 +70,9 @@
 
 </style>
 <body>
+<header class="header">
+		<jsp:include page="/header.jsp" />
+	</header>
 <%-- <c:if test="${sessionScope.admin}">
 			<div class="divv">
 
@@ -51,6 +82,8 @@
 		</c:if>--%>
 
    <br />
+   
+   <div>
  <form id="bookform" action="<%=request.getContextPath()%>/RequestABookServlet" method="post">
     <div class="mb-3 form-control container">
     <!-- div 1 -->
@@ -111,11 +144,9 @@
 </form>
 
 
-
-<div class="divv">
-
-<h3 class="hh">Hey!,See your request here.</h3>
-<a class="linkk" href="<%=request.getContextPath()%>/GetAllRequestServlet" method="Get">My Book Request</a>
-</div>
 </body>
 </html>
+
+
+
+			

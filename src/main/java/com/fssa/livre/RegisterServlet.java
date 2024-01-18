@@ -29,19 +29,16 @@ public class RegisterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		PrintWriter out = resp.getWriter();
 
-		
-		   String email = req.getParameter("email");
-	        String password = req.getParameter("password");
-	        String name = req.getParameter("name");
-	        long phoneNumber = Long.parseLong(req.getParameter("phoneNumber"));
-	        int age = Integer.parseInt(req.getParameter("age"));
+		String email = req.getParameter("email");
+		String password = req.getParameter("password");
+		String name = req.getParameter("name");
+		long phoneNumber = Long.parseLong(req.getParameter("phoneNumber"));
+		int age = Integer.parseInt(req.getParameter("age"));
 
-	        
-	  
-	    User user = new User(email, password, name, phoneNumber, age);
-	    UserService userService = new UserService();
-	    
-	    try {
+		User user = new User(email, password, name, phoneNumber, age);
+		UserService userService = new UserService();
+
+		try {
 			if (userService.registerUser(user)) {
 				out.println("user is valid");
 				RequestDispatcher dispatcher = req.getRequestDispatcher("./pages/login.jsp");
@@ -51,7 +48,7 @@ public class RegisterServlet extends HttpServlet {
 				resp.sendRedirect("index.jsp");
 			}
 		} catch (ServiceException e) {
-		e.printStackTrace();
+			e.printStackTrace();
 		}
 
 	}

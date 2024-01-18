@@ -10,6 +10,20 @@
 	--logo-white: white;
 }
 
+.list_3 {
+	display: flex;
+	align-items: center;
+}
+
+.fi {
+	border-radius: 50%; /* Make the image circular */
+	margin: 0 10px; /* Add some spacing between the icons */
+}
+
+.para {
+	margin-right: 10px; /* Add spacing between the text and the icons */
+}
+
 body.dark {
 	--white-color: black;
 	--dark-blue-btn: white;
@@ -247,7 +261,7 @@ footer a {
     list-style:none;
   } */
 div.section-1 {
-	margin-top: 3%;
+	
 }
 
 div.section-2 {
@@ -489,39 +503,7 @@ div.design-1 {
 	width: 100%;
 }
 /* end */
-.design_img3 {
-	position: absolute;
-	margin-right: 5%;
-	/* padding: 10 10 10 20; */
-	max-width: 100%;
-	width: 100%;
-	margin-top: -6%;
-}
 
-.read_para {
-	margin-left: 50%;
-	position: relative;
-	padding-top: 12%;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
-		sans-serif;
-	font-size: xxx-large;
-	/* margin-top: 10%; */
-	/* padding: 10%; */
-}
-
-.suggestion_div {
-	margin-top: 10%;
-}
-
-.suggestion_para {
-	margin-left: 50%;
-	position: relative;
-	/* padding-top: 12%; */
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
-		sans-serif;
-	font-size: xxx-large;
-	margin-top: 8%;
-}
 
 .design_img4 {
 	position: absolute;
@@ -560,7 +542,7 @@ div.design-1 {
 }
 
 .des_3_btn {
-	margin-left: 63%;
+	
 	position: relative;
 	margin-top: 3%;
 }
@@ -748,13 +730,6 @@ div.design-1 {
 	width: 100%;
 	/* background-color: #fff; */
 	z-index: 999;
-}
-
-.sec_1img {
-	width: 100%;
-	height: 75%;
-	position: absolute;
-	margin-top: -7%;
 }
 
 div.sec1_content {

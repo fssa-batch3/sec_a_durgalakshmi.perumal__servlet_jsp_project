@@ -34,31 +34,29 @@ public class PDFViewerServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		UserService userService = new UserService();
-		UserBooksService userBooksService = new UserBooksService(); 
+		UserBooksService userBooksService = new UserBooksService();
 
 		try {
-		    int userId = userService.getUserIdByEmail(email);
+			int userId = userService.getUserIdByEmail(email);
 
-		    if (!userBooksService.doesUserHaveBook(userId, bookId)) {
-		        UserBooks userBook = new UserBooks(userId, bookId);
-		        userBooksService.addUserBook(userBook);
+			if (!userBooksService.doesUserHaveBook(userId, bookId)) {
+				UserBooks userBook = new UserBooks(userId, bookId);
+				userBooksService.addUserBook(userBook);
 
-		   
+				System.out.println(pdfUrl);
+				request.setAttribute("pdflink", pdfUrl);
 
-		        System.out.println(pdfUrl);
-		        request.setAttribute("pdflink", pdfUrl);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/pdf_viewer.jsp");
+				dispatcher.forward(request, response);
 
-		        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/pdf_viewer.jsp");
-		        dispatcher.forward(request, response);
-		    
-		     } else {
-		    	  request.setAttribute("pdflink", pdfUrl);
-		    	 RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/pdf_viewer.jsp");
-			        dispatcher.forward(request, response);
-		    }
+			} else {
+				request.setAttribute("pdflink", pdfUrl);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/pdf_viewer.jsp");
+				dispatcher.forward(request, response);
+			}
 		} catch (ServiceException | com.fssa.livre.services.exceptions.ServiceException | DAOException e) {
-		    e.printStackTrace();
-		    out.println(e.getMessage());
+			e.printStackTrace();
+			out.println(e.getMessage());
 		}
 	}
 }

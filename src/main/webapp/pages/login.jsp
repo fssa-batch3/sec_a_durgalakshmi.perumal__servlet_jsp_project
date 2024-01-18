@@ -220,6 +220,19 @@
   border-radius: 3px;
   cursor: pointer;
     }
+    
+    .login-btn{
+         display: inline-block;
+        padding: 6px 13px;
+        background-color: white; 
+        color:#14488D ;
+        text-decoration: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom:5%;
+     
+    }
+
 </style>
 
 
@@ -244,7 +257,11 @@
       <input type="password" id="Password"  name="password" placeholder="Enter password"  title="Enter the valid password" 
              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=])(?=.*[^\s]).{8,}$" ><br>
     </div>
-    <button type="submit">Submit</button>
+    <div>
+   
+      <button class="login-btn" type="submit">Submit</button>
+      </div>
+   
   </form>
   <p>
     Don't have an account? <a href="./sign.jsp" class="a2">Sign up!</a>

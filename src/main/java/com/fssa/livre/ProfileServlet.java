@@ -22,37 +22,33 @@ import com.fssa.livre.services.exceptions.ServiceException;
 public class ProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		try {
+			HttpSession session = request.getSession(false);
+			String email = (String) session.getAttribute("loggedInEmail");
 
-	    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-	            throws ServletException, IOException {
-	        try {
-	            HttpSession session = request.getSession(false);
-	            String email = (String) session.getAttribute("loggedInEmail");
+			if (email != null) {
+				UserService userService = new UserService();
+				User user = userService.getUserByEmail(email);
+				System.out.println(user);
 
-	            if (email != null) {
-	                UserService userService = new UserService();
-	                User user = userService.getUserByEmail(email);
-	                System.out.println(user);
-	                
-	                if (user != null) {
-	                    request.setAttribute("userDetails", user);
-	                  
-	                } else {
-	                    response.sendRedirect("error.jsp");
-	                    return;
-	                }
+				if (user != null) {
+					request.setAttribute("userDetails", user);
 
-	                RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/profile.jsp");
-	                dispatcher.forward(request, response);
-	            } else {
-	                response.sendRedirect("login.jsp");
-	            }
-	        } catch (ServiceException e) {
-	            e.printStackTrace();
-	        }
-	    }
+				} else {
+					response.sendRedirect("error.jsp");
+					return;
+				}
 
-
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/profile.jsp");
+				dispatcher.forward(request, response);
+			} else {
+				response.sendRedirect("login.jsp");
+			}
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}
 	}
 
-
+}

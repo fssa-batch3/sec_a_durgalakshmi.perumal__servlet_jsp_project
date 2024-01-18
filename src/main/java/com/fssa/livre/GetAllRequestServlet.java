@@ -27,8 +27,8 @@ public class GetAllRequestServlet extends HttpServlet {
 			System.out.println(userEmail + " getrequestbookspagetest");
 			try {
 				UserRequestABookService userRequestABookService = new UserRequestABookService();
-				List<UserRequestABook> userRequestABookList = userRequestABookService.getBookRequestsForLoggedInUser(userEmail);
-			
+				List<UserRequestABook> userRequestABookList = userRequestABookService
+						.getBookRequestsForLoggedInUser(userEmail);
 
 				httpRequest.setAttribute("UserRequestABookList", userRequestABookList);
 

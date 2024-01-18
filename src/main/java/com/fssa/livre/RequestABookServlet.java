@@ -15,44 +15,44 @@ import com.fssa.livre.services.exceptions.ServiceException;
 
 @WebServlet("/RequestABookServlet")
 public class RequestABookServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    
-        HttpSession session = request.getSession(false);
-        String userEmail = null;
-        if (session != null) {
-            userEmail = (String) session.getAttribute("loggedInEmail");
-        }
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-    try{    String bookName = request.getParameter("bookname");
-        String imageUrl = request.getParameter("imagelink");
-        String description = request.getParameter("description");
+		HttpSession session = request.getSession(false);
+		String userEmail = null;
+		if (session != null) {
+			userEmail = (String) session.getAttribute("loggedInEmail");
+		}
 
-        UserRequestABook userRequestABook = new UserRequestABook();
-        userRequestABook.setemail(userEmail);
-        
-        userRequestABook.setBookName(bookName);
-        userRequestABook.setImageUrl(imageUrl);
-        userRequestABook.setDescription(description);
-        userRequestABook.setStatus("Pending");
+		try {
+			String bookName = request.getParameter("bookname");
+			String imageUrl = request.getParameter("imagelink");
+			String description = request.getParameter("description");
 
-        UserRequestABookService userRequestABookService = new UserRequestABookService();
-        boolean requestSuccess = userRequestABookService.requestBook(userEmail, bookName, imageUrl, description);
-        List<UserRequestABook> bookRequests = userRequestABookService.getAllBookRequests();
+			UserRequestABook userRequestABook = new UserRequestABook();
+			userRequestABook.setemail(userEmail);
 
-     // Set the list as an attribute in the request
-     request.setAttribute("bookRequests", bookRequests);
-		response.sendRedirect("index.jsp");
+			userRequestABook.setBookName(bookName);
+			userRequestABook.setImageUrl(imageUrl);
+			userRequestABook.setDescription(description);
+			userRequestABook.setStatus("Pending");
 
+			UserRequestABookService userRequestABookService = new UserRequestABookService();
+			boolean requestSuccess = userRequestABookService.requestBook(userEmail, bookName, imageUrl, description);
+			List<UserRequestABook> bookRequests = userRequestABookService.getAllBookRequests();
 
-    } catch ( Exception e) {
-		e.printStackTrace();
-		System.out.println("not done");	
-		response.sendRedirect(request.getContextPath() + "/error.jsp");
-		
+			// Set the list as an attribute in the request
+			request.setAttribute("bookRequests", bookRequests);
+			response.sendRedirect("index.jsp");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("not done");
+			response.sendRedirect(request.getContextPath() + "/error.jsp");
+
+		}
+
 	}
-        
-    }
 }

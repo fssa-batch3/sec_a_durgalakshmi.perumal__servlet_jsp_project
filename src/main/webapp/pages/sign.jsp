@@ -6,16 +6,13 @@
 <title>Registration</title>
 <style>
     <style>
-
-    body{
-      background-image:url(./../assets/images/new2.jpg);
+   body{
+       background-image:url(./../assets/images/new2.jpg);
       background-repeat: no-repeat;
       background-attachment: fixed;
-      background-size:63vw 100vh;
-    
-      background-position: 90%;
-      
-
+      background-size:65vw 100vh;
+      background-attachment: fixed;
+      background-position: 85%;
 
       
     }

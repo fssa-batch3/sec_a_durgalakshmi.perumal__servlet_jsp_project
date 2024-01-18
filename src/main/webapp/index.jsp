@@ -15,11 +15,154 @@
     /> -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrapID selectors, ID selectors have the higher specificity and are therefore more powerful. (In fact, ID selectors are so powerful that only the ! important property can override them in CSS.).min.css"
     />
   </head>
   <style>
+.list_3 {
+    display: flex;
+    align-items: center;
+}
 
+.fi {
+    border-radius: 50%; /* Make the image circular */
+    margin-right: 10px; /* Add some spacing between the icons */
+}
+
+.para {
+    margin-right: 10px; /* Add spacing between the text and the icons */
+}
+
+
+
+.section-1 {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+     margin-top:-5%;
+}
+
+.sec1-content {
+
+    flex: 1;
+    padding: 20px;
+    margin-left:10%;
+}
+
+.image-sec1-div {
+    flex: 1;
+    padding: 20px;
+   
+    margin-right: 10%;
+}
+
+.sec1-para {
+ 
+    font-size: 50px;
+    line-height: 1.5;
+    font-family:Palatino, URW Palladio L, serif;
+    color:#14488d;
+}
+
+
+
+.sec-1img {
+   
+    margin-top: 10%;
+    display: block;
+    border-radius: 8px;
+    margin-right: 20%;
+    height:480px;
+    width:120%;
+}
+
+
+
+
+/* suggestion btn */
+.read-btn {
+    font-size: 1.2rem;
+    padding: 1rem 2.5rem;
+    border: none;
+    outline: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #14488d;
+    color:white;
+    font-weight: 700;
+    transition: 0.6s;
+    box-shadow: #14488d;
+    text-decoration:none;
+     margin-top:15%;
+ 
+	/* -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4)); */
+}
+
+.read-btn:active {
+	scale: 0.92;
+}
+
+.read-btn:hover {
+	background: #14488d;
+
+	color: var(#14488d);
+}
+
+.suggestion_div {
+  display: flex;
+  align-items: center;
+  margin-top:-2%;
+}
+
+.design_img3 {
+  max-width: 100%; /* Ensure the image doesn't exceed its container */
+}
+
+.content-wrapper {
+  flex: 1;
+  padding: 0 20px; /* Adjust the padding as needed */
+}
+
+.curve-div {
+margin-left:10%;
+}
+
+.suggestion_para {
+  margin-bottom: 10px;
+     font-size: 50px;
+    line-height: 1.5;
+    font-family:Palatino, URW Palladio L, serif;
+    color:#14488d; /* Adjust the margin as needed */
+    margin-right:-10%;
+}
+
+
+  .req_div-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .req_div-content {
+
+    flex: 1;
+      margin-left: 9%;
+  }
+
+  .image-sec3-div {
+
+    margin-right: -9%; 
+  }
+  
+
+  .sec-3img {
+    width: 70%;
+    height: auto;
+    
+  
+  }
   </style>
 
   <body>
@@ -28,22 +171,44 @@
     
     <!--nav starts-->
 
-<header>
+<header class="header">
 		<jsp:include page="/header.jsp" />
-	</header>
-<div class="section-1">
-
-  <div class="image-wrapper">
-    <img class="sec_1img" id="1image" alt="img" src="./assets/images/Untitled design.png">
-  </div>
-  <div class="sec1_content">
-
-    <p class="sec1_para">Unleash your imagination <br>and discover a world <br>of knowledge.</p>
-    <a href="./pages/rack.jsp" class="library_btn"> <button class="des_libery_btn">Enter the Library</button></a>
-  </div>
-</div> 
-
+	</header> <div class="section-1">
+        <div class="sec1-content">
+      
+            <p class="sec1-para">Book lovers,
+                <br> rejoice!<br> Enjoy free reading now!</p>
+            <a href="GetAllReadbooksServlet" class="read-btn" >Start reading</a>
+          </div>
+        <div class="image-sec1-div">
+          <img class="sec-1img" id="1image" alt="img" src="./assets/images/Premium Vector _ People in library   illustration.jpeg">
+        </div>
        
+      </div>
+
+<div class="suggestion_div">
+
+ 
+  <img class="design_img3" alt="img" id="3image" src="./assets/images/li-img.jpeg">
+  <div class="curve-div">
+ <p class="suggestion_para para">Unleash your imagination <br>and discover a world <br>of knowledge.</p> 
+<a href="./pages/rack.jsp">  <button class="des_3_btn">Explore</button></a></div>
+ 
+</div>
+   <div class="req_div-container">
+  <div class="req_div-content">
+    <p class="sec1-para">Request your favorite book <br>from us!
+Explore a world of <br>reading delight.</p>
+    <a href="<%=request.getContextPath() %>/pages/requestABook.jsp" class="read-btn" style="  margin-top:2%;">Request a book</a>
+  </div>
+  <div class="image-sec3-div">
+    <img class="sec-3img" id="1image" alt="img" src="./assets/images/requestbok.jpeg">
+  </div>
+</div>
+
+
+
+
 
       <div class="section-2 about-div">
         <p>What we believe in</p>
@@ -57,40 +222,11 @@
           </div>
 </div>
  
-<div class="design-1">
-
-  <img class="design_img1"id="image1" alt="img" src="./assets/images/Home (1).png">
-  <p class="read_para para">Are you a bibiliophile?<br>Then this is for you!<br>
-  Now you can read books for free!</p> 
-<a href="GetAllReadbooksServlet">  <button class="des_1_btn">START READING</button></a>
-</div>
-
-<!-- section3 -->
-<%-- <div>
-  <img class="design_img2" id="2img" alt="img" src="./assets/images/About (1).png">
-  <p class="shop_para para"><br>"Shop from </p>
-<a href="./pages/buybooks.jsp">  <button class="des_2_btn">SHOP HERE!</button></a>
  
-</div>--%>
-
-<!-- suggestion -->
-<div class="suggestion_div">
-  <img class="design_img3" alt="img" id="3image" src="./assets/images/Black Blue Ivory Dark Experimental Traditional Art Portfolio Website (3).png">
- <p class="suggestion_para para">Would you like to exchange book recommendations?<br>Then try this!</p> 
-<a href="./pages/sugges.jsp">  <button class="des_3_btn">Suggestion</button></a>
  
-</div>
-<!-- music -->
-<div>
-  <img class="design_img4" id="4image" src="./assets/images/Black Blue Ivory Dark Experimental Traditional Art Portfolio Website (5).png">
- <p class="music_para para">Would you like to exchange book recommendations?<br>Then try this!</p> 
-<a href="./pages/musics.jsp">  <button class="des_4_btn">Listern</button></a>
 
-</div>
- <!-- customer-details -->
- <div class="cus_div">
-  <img class="cus_img" id="5img" alt="img"  src="./assets/images/DESIGN-3.png">
-</div>
+
+
 <div class="newslatter">
 <div class="emailnews_form">
   <form action="">
@@ -108,27 +244,27 @@
 
 <!-- footer -->
 <div class="section_4">
-  <div class="list-1 ">
-    <h4 class="para" >about</h4>
+  <div class="list-1 " style="color:black;">
+    <h4 class="para" >Links</h4>
+<a href="<%=request.getContextPath() %>/index.jsp">Home</a>
+<a href="<%=request.getContextPath() %>/MyBooksServlet">My booklist</a>
+<a href="<%=request.getContextPath() %>/ProfileServlet">Profile</a>
+<a href="<%=request.getContextPath() %>/GetAllReadbooksServlet">Readbooks</a>
+<a href="<%=request.getContextPath() %>/pages/rack.jsp">Library</a>
+<a href="<%=request.getContextPath() %>/pages/requestABook.jsp">Request a book</a>
+<a href="<%=request.getContextPath()%>/GetAllRequestServlet" >My book request</a>
 
-    <a>mind free</a>
-<a>useful for students</a>
-<a>relax</a>
-<a>dreamful</a>
-<a>motivation</a>
-<a>brave</a>
-<a>mental health</a>
 
   </div>
   <div class="list-1">
-    <h4 class="para">supports</h4>
-    <a>books</a>
-    <a>comics</a>
-    <a>stories</a>
-    <a>thoughtful</a>
-    <a>emotional</a>
-    <a>reality</a>
-    <a>history</a>
+    <h4 class="para">Category</h4>
+   <a >kids</a>
+    <a >romantic</a>
+    <a >classic</a>
+    <a >trend</a>
+    <a >triller</a>
+    <a >textbooks</a>
+    <a >buybooks</a>
   </div>
   <div class="list-1">
     <h4 class="para">list</h4>
@@ -140,13 +276,14 @@
     <a >textbooks</a>
     <a >buybooks</a>
   </div>
-
-  <div class="list_3">
+<div class="list_3">
     <h1 class="para">Contact us with</h1>
-  <a href="" ><img class="fi" src="./assets/images/fb.jpg" alt="fb" /></a>
-  <a href="" ><img class="fi" src="./assets/images/twitter.png" alt="twitter" /></a>
-  <a href="" > <img class="fi" src="./assets/images/insta_icon.jpeg" alt="insta" /></a>
-  </div>
+    <a href=""><img class="fi" src="./assets/images/fb.jpg" alt="fb" /></a>
+    <a href=""><img class="fi" src="./assets/images/twitter.png" alt="twitter" /></a>
+    <a href=""><img class="fi" src="./assets/images/insta_icon.jpeg" alt="insta" /></a>
+</div>
+
+
 </div>
 <div class="copyrights">
   @copyrights 2023 Livre | All rights reserved

@@ -6,16 +6,94 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="./assets/css/readbook.css" />
-    <style>
-        .mybookline {
-            font-size: 2rem;
-            margin-top: 200px;
-            text-transform: uppercase;
-            text-align: center;
-            color: #007BFF; /* Blue color */
-        }
-    </style>
+    
+<style>
+
+    .book-box {
+      margin-bottom:10%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top:5%;
+     margin-left:14%;
+     
+    }
+
+    .box-1 {
+    border-radius:3%;
+        width: 20%; /* Adjust the width as needed */
+        padding: 10px;
+        border: 1px solid ; /* Add a border */
+     
+        background-color:#14488D; 
+    }
+
+    .tb-1 {
+        width: 60%; /* Make the image fill the container */
+        height: 60%; /* Adjust the height as needed */
+        object-fit: cover; /* Maintain aspect ratio and cover the container */
+        border-radius: 8px; /* Rounded corners */
+         justify-content: center; 
+           display: block;
+        margin: 0 auto; 
+        
+      
+        
+    }
+.bok_name {
+        font-weight: bold;
+        font-size: 16px;
+        border-bottom: 1px solid white;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+          text-align: center;
+          color:white;
+    }
+
+    .bok_cat {
+        font-style: italic;
+        margin-top: 5px;
+        color:white;
+     
+    }
+
+    .read-box {
+        text-align: center;
+        margin-top: 10px;
+        
+    }
+
+    .book-details {
+        margin-top: 10px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .bok_name {
+        font-weight: bold;
+        font-size: 16px;
+        border-bottom: 1px solid #ccc; /* Line below the book name */
+        padding-bottom: 5px; /* Adjust as needed */
+    }
+
+  
+
+  
+
+    .tbtn-1 {
+        display: inline-block;
+        padding: 6px 13px;
+        background-color: white; 
+        color:#14488D ;
+        text-decoration: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top:5%;
+    }
+</style>
+
 </head>
 
 <body>

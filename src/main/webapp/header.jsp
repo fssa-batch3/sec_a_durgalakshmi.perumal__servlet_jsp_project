@@ -14,7 +14,7 @@
 	integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
 	crossorigin="anonymous"></script>
 </head>
-<body>
+<body >
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       
       <div class="container">
@@ -78,17 +78,20 @@ if ((loggedInEmail != null && !loggedInEmail.isEmpty()) || (isAdmin != null && i
         <a class="navbar-brand" href="<%=request.getContextPath()%>/MyBooksServlet">My books</a>
     </li>
     <li class="nav-item head_btn">
-        <a class="navbar-brand" href="<%=request.getContextPath() %>/pages/requestABook.jsp">Request a book</a>
+        <a class="navbar-brand" href="<%=request.getContextPath()%>/GetAllRequestServlet" method="Get">My book request</a>
     </li>
-    
+    <li class="nav-item head_btn">
+     <a class="navbar-brand" href="<%=request.getContextPath()%>/LogoutServlet">Log Out</a>
+     </li>
     
     <div class="flex-shrink-0">
         <a href="<%=request.getContextPath()%>/ProfileServlet">
-            <img src="<%=request.getContextPath() %>/assets/images/Screenshot 2023-04-04 135236.png" 
+            <img src="<%=request.getContextPath() %>/assets/images/profile (3).png" 
                  alt="Generic placeholder image" class="img-fluid rounded-circle border border-dark border-3"
                  style="width:50px;">
         </a>
     </div>
+    
 <% 
     }
 } else {

@@ -18,47 +18,47 @@ import com.fssa.livre.services.exceptions.ServiceException;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-    	UserDAO userDao = new UserDAO();
-    
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
+		UserDAO userDao = new UserDAO();
 
-        PrintWriter out = response.getWriter();
-        UserService loginService = new UserService();
-        HttpSession session = request.getSession();
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
 
-        try {
-            if ("admindurga@gmail.com".equals(email) && "Durgapassword@321".equals(password)) {
-                session.setAttribute("admin", true);
+		PrintWriter out = response.getWriter();
+		UserService loginService = new UserService();
+		HttpSession session = request.getSession();
 
-                RequestDispatcher userDispatcher = request.getRequestDispatcher("index.jsp");
-                userDispatcher.forward(request, response);
-                return;
-            }
-             if (loginService.loginUser(email, password)) {
-                out.println("Email and password are valid");
-            
-                session.setAttribute("loggedInEmail", email);
+		try {
+			if ("admindurga@gmail.com".equals(email) && "Durgapassword@321".equals(password)) {
+				session.setAttribute("admin", true);
 
-                System.out.println("Email: " + session.getAttribute("loggedInEmail"));
+				RequestDispatcher userDispatcher = request.getRequestDispatcher("index.jsp");
+				userDispatcher.forward(request, response);
+				return;
+			}
+			if (loginService.loginUser(email, password)) {
+				out.println("Email and password are valid");
 
-                RequestDispatcher userDispatcher = request.getRequestDispatcher("index.jsp");
-                userDispatcher.forward(request, response);
-            } else {
-            	
-                out.println("Email and password are Invalid");
-            }
-        } catch (ServiceException e) {
-            out.println(e.getMessage());
-            e.printStackTrace();
-            String[] errorMassage = e.getMessage().split(":");
-            response.sendRedirect("index.jsp?errorMessage=" + errorMassage[1]);
-        }
-    }
+				session.setAttribute("loggedInEmail", email);
+
+				System.out.println("Email: " + session.getAttribute("loggedInEmail"));
+
+				RequestDispatcher userDispatcher = request.getRequestDispatcher("index.jsp");
+				userDispatcher.forward(request, response);
+			} else {
+
+				out.println("Email and password are Invalid");
+			}
+		} catch (ServiceException e) {
+			out.println(e.getMessage());
+			e.printStackTrace();
+			String[] errorMassage = e.getMessage().split(":");
+			response.sendRedirect("index.jsp?errorMessage=" + errorMassage[1]);
+		}
+	}
 
 }

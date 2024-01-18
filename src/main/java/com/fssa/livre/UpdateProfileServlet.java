@@ -19,30 +19,28 @@ import com.fssa.livre.model.User;
  */
 @WebServlet("/UpdateProfile")
 public class UpdateProfileServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        HttpSession session = request.getSession(false);
-        if (session != null) {
-            String email = (String) session.getAttribute("loggedInEmail");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+			String email = (String) session.getAttribute("loggedInEmail");
 
-            UserDAO userDAO = new UserDAO();
-            
-            try {
-                User user = userDAO.getUserByEmail(email);
-                request.setAttribute("userDetails", user);
+			UserDAO userDAO = new UserDAO();
 
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/updateProfile.jsp");
-                dispatcher.forward(request, response);
-            } catch (DAOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            response.sendRedirect("login.jsp"); 
-        }
-    }
+			try {
+				User user = userDAO.getUserByEmail(email);
+				request.setAttribute("userDetails", user);
 
- 
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/updateProfile.jsp");
+				dispatcher.forward(request, response);
+			} catch (DAOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			response.sendRedirect("login.jsp");
+		}
+	}
+
 }
-

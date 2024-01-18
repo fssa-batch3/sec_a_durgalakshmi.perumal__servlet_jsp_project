@@ -14,25 +14,23 @@ import com.fssa.livre.services.UserRequestABookService;
  */
 @WebServlet("/AcceptStatusServlet")
 public class AcceptStatusServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String requestId = request.getParameter("requestId");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String requestId = request.getParameter("requestId");
 
-        if (requestId != null && !requestId.isEmpty()) {
-            UserRequestABookService userRequestABookService = new UserRequestABookService();
-             
-            boolean updated = userRequestABookService.updateAcceptStatus(requestId, "Accepted");
+		if (requestId != null && !requestId.isEmpty()) {
+			UserRequestABookService userRequestABookService = new UserRequestABookService();
 
-            if (updated) {
-                response.sendRedirect(request.getContextPath() + "/GetRequestAdminServlet");
-                return;
-            }
-        }
-        
-        response.sendRedirect(request.getContextPath() + "/error.jsp");
-    }
+			boolean updated = userRequestABookService.updateAcceptStatus(requestId, "Accepted");
+
+			if (updated) {
+				response.sendRedirect(request.getContextPath() + "/GetRequestAdminServlet");
+				return;
+			}
+		}
+
+		response.sendRedirect(request.getContextPath() + "/error.jsp");
+	}
 }
-
-

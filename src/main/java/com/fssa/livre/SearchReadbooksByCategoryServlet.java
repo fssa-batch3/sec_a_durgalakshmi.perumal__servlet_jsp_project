@@ -16,29 +16,27 @@ import com.fssa.livre.services.exceptions.ServiceException;
 
 @WebServlet("/searchreadbooks")
 public class SearchReadbooksByCategoryServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-        String selectedCategory = request.getParameter("category");
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-        ReadbooksService readbooksService = new ReadbooksService();
-        List<Readbooks> categoryResults = null;
+		String selectedCategory = request.getParameter("category");
 
-        try {
-           
-            categoryResults = readbooksService.searchReadbooksByCategory(selectedCategory);
+		ReadbooksService readbooksService = new ReadbooksService();
+		List<Readbooks> categoryResults = null;
 
-            
-            request.setAttribute("readbooksList", categoryResults);
+		try {
 
-      
-            RequestDispatcher dispatcher = request.getRequestDispatcher("./pages/readbooks.jsp");
-            dispatcher.forward(request, response);
-        } catch (ServiceException e) {
-            e.printStackTrace();
-            
-        }
-    }
+			categoryResults = readbooksService.searchReadbooksByCategory(selectedCategory);
+
+			request.setAttribute("readbooksList", categoryResults);
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("./pages/readbooks.jsp");
+			dispatcher.forward(request, response);
+		} catch (ServiceException e) {
+			e.printStackTrace();
+
+		}
+	}
 }
-

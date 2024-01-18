@@ -9,6 +9,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link
+  rel="stylesheet"
+  href="./../assets/css/header.css"
+/>
+
     <link rel="stylesheet" href="./assets/css/readbook.css" />
 
 <style>
@@ -18,7 +23,7 @@
       text-align: center;
   }
     
-      .container {
+      .lisbook {
         margin-top:5%;
        text-align: center;
        
@@ -39,20 +44,42 @@
 .row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* Adjust as needed */
-    margin-left:5%;
-       margin-right:5%;
+ gap:3%;
+    margin-left: 2%;
+    margin-right: 5%;
 }
 
+.box-1 {
+    width: 22.5%; /* Adjusted width to accommodate 4 boxes in a row */
+    margin-bottom: 2%; /* Add a margin-bottom to create space between rows */
+}
+.lisbook{
+
+    margin-bottom: 10%;
+    display: flex;
+  
+justify-content: flex-star
+    gap: 20px;
+    margin-top: 5%;
+    margin-left: 14%;
+}
+    .box-1 img {
+            height: 250px; /* Set your desired fixed height */
+            width: 100%; /* Maintain aspect ratio */
+            object-fit: cover; /* Ensure the image covers the specified height */
+        }
 </style>
 </head>
 <body>
-<div class="container">
-		<h1>Book Requests</h1>
+<header class="header">
+		<jsp:include page="/header.jsp" />
+	</header>
+<div class="lisbook">
+	
 		<div class="row">
 			<c:forEach var="request" items="${UserRequestABookList}">
    
-        <div class="box-1">
+        <div class="box-1" style="width:15%; hight:10%;">
             <img src="${request.imageUrl}" class="card-img-top" alt="Book Image">
             <div class="card-body">
                 <h5 class="bok_name">${request.bookName}</h5>
