@@ -79,7 +79,7 @@ justify-content: flex-star
 		<div class="row">
 			<c:forEach var="request" items="${UserRequestABookList}">
    
-        <div class="box-1" style="width:15%; hight:10%;">
+        <div class="box-1" style=" hight:10%;">
             <img src="${request.imageUrl}" class="card-img-top" alt="Book Image">
             <div class="card-body">
                 <h5 class="bok_name">${request.bookName}</h5>

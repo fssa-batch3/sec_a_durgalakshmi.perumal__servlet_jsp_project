@@ -75,8 +75,22 @@ justify-content: flex-star
 <header class="header">
 		<jsp:include page="/header.jsp" />
 	</header>
-<div class="lisbook">
-   
+	<div>
+	
+	
+<div class="liststatus">
+   <form action="status" method="post">
+					<label for="status">Search Status:</label> <select
+						name="status" id="status">
+						<option value=" ">        </option>
+						<option value="pending">Pending</option>
+						<option value="accepted">"Accepted"</option>
+						<option value="declined">Declined</option>
+						
+					</select> <input type="submit" value="Search">
+				</form>
+
+				<a class="show-all-books" href=<%=request.getContextPath()%>/GetAllReadbooksServlet>Show All Books</a> 
     <div class="row">
         <c:forEach var="request" items="${bookRequests}">
             <div class="col-md-4">
@@ -91,7 +105,7 @@ justify-content: flex-star
                         
                     </div>
                    <div style="display: inline-block; ">
-  <a class="btn btn-success" style="    left: 20px;" href="<%=request.getContextPath()%>/AcceptStatusServlet?requestId=${request.requestId}">Accept</a>
+<a class="btn btn-success" style="left: 20px;" href="<%=request.getContextPath()%>/AcceptStatusServlet?requestId=${request.requestId}&bookName=${request.bookName}">Accept</a>
 </div>
 <div style="display: inline-block; ">
   <a class="btn btn-danger" style="   rihgt:10px;" href="<%=request.getContextPath()%>/DeclineStatusServlet?requestId=${request.requestId}">Decline</a>
@@ -103,6 +117,6 @@ justify-content: flex-star
         </c:forEach>
     </div>
 </div>
-
+</div>
 </body>
 </html>
